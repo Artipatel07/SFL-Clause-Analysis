@@ -1,0 +1,111 @@
+/****** jQuery Autocomplete CSS ************/
+ .ui-corner-all {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.ui-menu {
+    border: 1px solid lightgray;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.ui-menu .ui-menu-item:hover {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    background-color: #8897b9;;
+    color: #FFFFFF;
+}
+.ui-widget-content .ui-state-hover, .ui-widget-content .ui-state-focus {
+    background-image: none;
+    font-weight: bold;
+}
+.ui-autocomplete{
+  list-style-type:none;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+
+.ui-autocomplete{
+
+  
+  &.active{
+    .ui-autocomplete{
+      background-color: rgb(240, 240, 240);
+      
+      &.hover{
+        background-color: #0083F5;
+        color: white;
+      }
+    }
+  }
+}
+
+.ui-menu-item{
+  border-bottom: 1px solid fade(black, 10%);
+  background-color: white;
+  width: 400px;
+  height: 50px;
+  transition-duration: 0.5s;
+  position: relative;
+  
+  padding: 30px;
+  text-align: center;
+  
+  &:hover{
+    cursor: pointer;
+    background-color: rgb(0, 64, 255);
+  }
+  
+  
+    
+    &:before, &:after{
+      width: 16px;
+      height: 2px;
+      border-radius: 2px;
+      background-color: #0083F5;
+      position: absolute;
+      content: "";
+      top: 14px;
+      left:7px; 
+      
+      transition-duration: 0.33s;
+    }
+    
+    &:before{
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    
+    &:after{
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+  }
+  
+  &.last{
+    border-bottom: none;
+  }
+
+  &.margin{
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  &.active{
+    box-shadow: 0px 5px 10px fade(black, 20%);
+    border-bottom: none;
+    color: black;
+    
+    transition-delay: 0.5s; 
+    transform: scale(1.1, 1.1);
+    
+    -webkit-transition-delay: 0.5s; 
+    -webkit-transform: scale(1.1, 1.1);
+  }
+}

@@ -1,0 +1,286 @@
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    left: 0px;
+    overflow: auto;
+    float: left;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover.dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.btn-grp {
+    display: flex;
+    width: 100%;
+    border: none;
+    padding-bottom: 14px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.clauseAlignment {
+    text-align: left;
+    cursor: pointer;
+
+}
+
+table {
+    font-family: "Roboto", Arial, sans-serif;
+    border-collapse: collapse;
+    overflow: auto;
+    width: 100%;
+    float: left;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    /*padding: 15px;*/
+    /* min-width: 20px;*/
+}
+
+.AnalyseTable td {
+    padding: 15px!important
+}
+
+
+/*
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+*/
+
+h4 {
+    text-align: center;
+}
+
+.inlineTable {
+    display: inline-block;
+}
+
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+
+/*Panels are the forms in index that hide until wanted*/
+
+#panel {
+    padding: 5px;
+    text-align: center;
+    display: none;
+}
+
+#panel2 {
+    padding: 5px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: solid 1px #c3c3c3;
+    display: none;
+    max-width: 100%;
+    height: auto !important;
+    /* max-height : 100%;
+}
+#panel2 {*/
+    min-width: 42%;
+    border-radius: 4px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: relative;
+    z-index: 1;
+}
+
+#mergeButton {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+#unMergeButton {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+#underlineButton {
+    display: none;
+}
+
+#tree-0 {
+    display: table-cell;
+    vertical-align: top;
+    white-space: nowrap;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#tree-1 {
+    display: table-cell;
+    vertical-align: top;
+    white-space: nowrap;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#EditorForRootNode {
+    margin-bottom: 15px;
+    display: none;
+}
+
+.EditRootNodeLabel {
+    float: left;
+}
+
+.EditRootNodeBody {
+    width: 100% !important;
+}
+
+#EditorForCaption {
+    margin-bottom: 15px;
+    display: none;
+}
+
+
+/*
+[id^=svg]{
+    border : 1px solid grey;
+    overflow: scroll;
+    }*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+* {
+    /*font-family: "Roboto", Arial, sans-serif;*/
+}
+
+body {
+    font-family: "Roboto", Arial, sans-serif !important;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
+    flex-direction: column;
+    padding-bottom: 64px;
+    /* height of footer*/
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h1 {
+    font-weight: 100;
+    color: #777;
+}
+
+p {
+    color: #999;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+
+/*
+@media (min-width:601px) {
+    i.material-icons {
+        padding:10px;
+        margin:5px;
+        font-size:.8rem;
+    }
+}*/
+
+@media (min-width:993px) {
+    i.material-icons {
+        /*padding:10px;
+        /*margin:10px;
+        font-size:.8rem;*/
+    }
+    i.material-icons:after {
+        border-width: 3px;
+        top: -3px;
+        left: -3px;
+    }
+}
+
+#inputfile {
+    display: none;
+}
+
+table,
+td,
+tr,
+th {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 2px solid #A0A0A0;
+}
+
+.tabs .tab a {
+    color: #000;
+}
+
+
+/*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color: #eee;
+    color: #000;
+}
+
+
+/*Text color on hover*/
+
+.tabs .tab a.active {
+    background-color: transparent !important;
+    color: #000;
+}
+
+
+/*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color: #000;
+}
+
+
+/*Color of underline*/
+
+activeTab {
+    background-color: rgb(70, 70, 70, .4);
+}

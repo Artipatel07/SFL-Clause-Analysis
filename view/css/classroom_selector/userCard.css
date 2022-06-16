@@ -1,0 +1,161 @@
+/* Profile card styling */
+
+.profile-picture {
+    position: relative;
+}
+
+div .profile-picture img {
+    border: 5px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    width: 25px;
+    height: 25px;
+}
+
+#editProfilePic:hover {
+    background-color: rgb(0, 0, 0, 1);
+}
+
+#newClause {
+    width: 460px;
+    height: 445px;
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    border-radius: 5px;
+    z-index: 999;
+    display: none;
+}
+
+.newClauseInputs {
+    padding: 10px;
+    margin-top: -18px;
+}
+
+img:hover {
+    opacity: 0.8;
+    /* 1 = 100%, 0 = 0% */
+    /* or the drop-shadow effect */
+    box-shadow: 0 1px 8px black;
+    /* goes x-axis, y-axis, blur, (stretch factor on x-axis, not used here), colour */
+}
+
+.closeButton {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+ul li {
+    border-bottom: 1px solid #cccccc;
+}
+
+.tabs li {
+    border-bottom: 1px solid #007bff;
+}
+
+li:hover {
+    background-color: rgb(0, 0, 0, 0.1)
+}
+
+ul li a {
+    text-decoration: none;
+    padding: 23px 12px;
+    width: 100%;
+    display: block;
+}
+
+#updateUser {
+    padding: 20px;
+    width: 458px;
+    position: absolute;
+    top: 12%;
+    left: 35%;
+    z-index: 999;
+    overflow-y: auto;
+    display: none;
+    border-radius: 5px;
+}
+
+#changePasswordCard {
+    padding: 12px;
+    width: 458px;
+    position: absolute;
+    top: 12%;
+    left: 35%;
+    z-index: 999;
+    overflow-y: auto;
+    background-color: white;
+    display: none;
+}
+
+#changePasswordCard form .input-field {
+    margin-top: 20px
+}
+
+.ui-menu-item {
+    padding: 0px;
+}
+
+
+/*options menu*/
+
+.ui-menu {
+    width: auto;
+}
+
+.ui-state-focus {
+    background: rgb(0, 0, 0, 0.1)!important;
+}
+
+.ui-menu .ui-menu-item {
+    position: relative;
+    margin: 0;
+    padding: 0px;
+    cursor: pointer;
+    min-height: 0;
+    list-style-image: none !important;
+}
+
+.ui-widget-content {
+    color: #222222;
+    border: 1px solid #aaaaaa;
+    background: #ffffff !important;
+    border-radius: 5px;
+}
+
+#profileCard {
+    border-radius: 5px;
+    width: 230px;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 3;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0.9);
+}
+
+.tenMargin {
+    margin-left: 30px;
+    margin-top: -28px;
+    margin-right: 30px;
+}
+
+#UpdateUserCard {
+    display: block;
+    border-radius: 5px;
+}
+
+#changePasswordCard {
+    border-radius: 5px;
+}
+
+#AssignmentId a,
+.Students a,
+#DraftAssignment a {
+    padding: 12px 12px
+}

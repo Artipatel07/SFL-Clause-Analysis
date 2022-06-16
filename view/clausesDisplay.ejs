@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="Application-Icons/favicon-16.png">
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="stylesheet" href="/css/SFL_Draw/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/css/material-icons-extra.css">
+    <link rel="stylesheet" href="/css/SFL_Draw/autocomplete.css">
+    <link rel="stylesheet" href="/css/SFL_Draw/panel.css">
+    <link rel="stylesheet" href="/css/SFL_Draw/editor.css">
+    <link rel="stylesheet" href="/css/classroom_selector/userCard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/messages.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Controllers/SFL_Draw/Panel_javascripts/tablecellsselection.css">
+    <title>SFL Draw</title>
+</head>
+
+<body>
+    <div class='containerOfAll'>
+
+        <nav style='background-color: #007bff' role="navigation">
+            <div class="nav-wrapper">
+                <span style='right:20px; z-index:3' class="profile-picture right">
+                    <i class='material-icons' style='font-size: 25px'  onclick="Logout()"> logout
+                    </i>
+            </span>
+                <a class="grey-text text-lighten-4 right" href="#!">
+                    <i class="material-icons right" style='color:white; margin-right: 16px'>
+                    <i id='addClause' style='font-size: 2.4rem;  margin-right: 16px' class="material-icons">add</i>
+                    </i>
+                </a>
+                <span id='Sfl_teacher_settings' style='right:40px; margin-top:7px; z-index: 3; display:none' class="profile-picture right">
+                <i id='sfl_teacher_set_icon' class='material-icons' style='font-size: 25px'>visibility
+                </i>
+            </span>
+                <span id='mode' class='right' style='margin-right:60px; margin-top:7px; z-index: 3; display:none'>
+                <a class="tooltipped" data-position="bottom"
+                    data-tooltip="Change to Edit mode to change your sample answer">
+                    <i style='font-size : 16px'>(View Mode)</i>
+                </a>
+            </span>
+                <div class="container" style='width:100%; margin-left:16px'>
+                    <div class='left' style='font-family: "Roboto", Arial, sans-serif"'>
+                        <a href="/views/dashboard" class="breadcrumb returnToDash">Dashboard</a>
+                        <a href="#" class="breadcrumb">Clause Analysis</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </nav>
+        <div id='messageEl' style='display: none; margin-top: 5px;' class="alert-block alert-success">This has been attempted before.</div>
+        <table id="putcontentshere" style='margin-top:-1px'>
+            <tr>
+                <th>Tools</th>
+                <th>Clause List</th>
+            </tr>
+        </table>
+        <div oninput="getSentence()" class='container text-lighten-4' style='text-align: left'>
+        </div>
+        <!-- This is the panel that appears when user clicks on a sentence/clause -->
+        <div id='panel2'>
+            <!--<button id="closePanel2" class="w3-button w3-red w3-right w3-large"><i class="fa fa-close"></i></button>-->
+            <i id='closePanel2' style='position: absolute; right:10px' class="material-icons">close</i>
+
+            <h4 id='analysisTableHeading'>Analysis Table</h4>
+
+                         <ul class="tabs btn-group btn-grp">
+                <li id="MarkupButton" style="flex: 1;" class="w3-bar-item w3-button tablink active tab col s3"
+                    onclick="openLink(event, 'Markup');">
+                    <a href='#' class='active'>
+                        <i class="fa fa-pencil-square-o w3-margin-right"></i>Analysis</a>
+                </li>
+                <li id="TreeButton" style="flex: 1;" class="w3-bar-item w3-button tablink tab col s3"
+                    onclick="openLink(event, 'Tree');">
+                    <a>
+                        <i class="fa fa-tree w3-margin-right"></i>Tree</a>
+                </li>
+                <li id='OtherButton' style="flex: 1;" class="w3-bar-item w3-button tablink tab col s3"
+                    onclick="openLink(event, 'Other');">
+                    <a>
+                        <i class="fa fa-code w3-margin-right"></i>Other</a>
+                </li>
+
+            </ul> 
+
+            <!-- Tabs -->
+            <div id="Tabs">
+                <div id="Markup" class="myLink">
+                    <div style="background-color: #e3e1dc; padding: 5px; margin-top: 5%;">
+                        <h5 id="sentence2"></h5>
+                    </div>
+                    <br>
+                    <!-- Output selected sentence -->
+
+                    <!-- table buttons -->
+
+                    <div id='ButtonsOfTable' style=" z-index: 2; display: flex; ">
+                        <div style='display: -webkit-box; width:68%'>
+                            <i id='undoButton' onclick="undoTableOp()" title="Undo" class="material-icons table-buttons">undo</i>
+                            <i id='addRowButton' onclick="addRow()" title="Add Row" class="material-icons table-buttons">add</i>
+                            <i id='save' title="Save" class="material-icons table-buttons">save</i>
+                            <!-- <i id='gradeSFG'  title="Grade" class="material-icons">grade</i> -->
+                            <i id='rootNodeButton' title="Edit Root Node" class="material-icons table-buttons">edit</i>
+                            <i id='captionButtom' title="Add translation/Caption" class="material-icons table-buttons">short_text</i>
+                            <i id='switchStrand' title="Switch to Three Strand Analysis" class="material-icons table-buttons">chevron_right</i>
+                            <i class="material-icons" style="visibility: hidden;">add</i>
+                        </div>
+                        <div id='TypeOfStrand' style=' float:right;'>One Strand Analysis</div>
+                    </div>
+
+
+
+                    <!--Merge buttons-->
+
+                    <i id='mergeButton' onclick="mergeSelectedCells()" title="Merge" class="material-icons" style='z-index: 2'>
+                        <img src="/Controllers/SFL_Draw/Panel_javascripts/mergeBlack.png"
+                            style="width:18px;height:18px;">
+                    </i>
+                    <i id='unMergeButton' onclick="unMergeSelectedCells()" title="Un-Merge" class="material-icons" style='z-index: 5'>grid_on</i>
+
+
+
+                    <!-- Table/Box diargram-->
+                    <div id="overflow_table" style='overflow: auto; margin-top: 15px;'>
+
+                        <!-- Edit Root Node Field -->
+                        <div id="EditorForRootNode">
+                            <div class="EditRootNodeLabel">
+                                Edit root node :
+                            </div>
+                            <div class="EditRootNodeBody">
+                                <input id='newRootValue' type="text" value="Clause">
+                            </div>
+                        </div>
+
+                        <!-- Edit Caption Field -->
+                        <div id="EditorForCaption">
+                            <div class="EditRootNodeLabel">
+                                Add a caption or tranlation to the bottom of the tree :
+                            </div>
+                            <div class="EditRootNodeBody">
+                                <input id='newCaptionValue' type="text">
+                            </div>
+                        </div>
+
+                        <!--One strand table-->
+                        <div style=' z-index: 1'>
+                            <div class="col-md-6" style='width: 100%'>
+                                <table id="tableId" class="table AnalyseTable table-condensed table-summary table-borderless table-responsive" style='width: 100%'>
+                                    <tr></tr>
+                                </table>
+                                <table id="threeStrandTable" class="table AnalyseTable table-condensed table-summary table-borderless table-responsive" style='width: 100%; display: none'></table>
+                            </div>
+
+                            <!-- Comparing tables -->
+                            <!-- <div class="col-md-6" style='width: 100%'>
+                                <table id='comparedTable'
+                                    class="table AnalyseTable table-condensed table-summary table-borderless table-responsive"
+                                    style='width: 100%'></table>
+                                <table id='comparedTableTST'
+                                    class="table AnalyseTable table-condensed table-summary table-borderless table-responsive"
+                                    style='width: 100%; display: none'></table>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+
+                               <div id="Tree" class="myLink" style="overflow: auto">
+                    <div id="Tree_list" style="display:none"></div>
+                    <div id="TreeArea" style="overflow: auto"></div>
+                </div>
+
+                <div id="Other" class="myLink" style="overflow: auto">
+                    <div style='padding : 20px'>
+                        <a id='DownloadJSON' class="waves-effect waves-light btn" download>
+                            <i class="material-icons right">save_alt</i>Export Table HTML
+                        </a>
+                        <a id='DownloadSFLTree' class="waves-effect waves-light btn" download>
+                            <i class="material-icons right">save_alt</i>Export Syntax Tree</a>
+                    </div>
+                </div> 
+
+            </div>
+
+        </div>
+
+        <!-- shows who has annotated, doesn't appear in demo version -->
+
+        <div id='panel'>
+            <div class="container">
+                <div id='student_list' class="list-group" style="float:left; clear:left; height:50px;">
+
+                </div>
+            </div>
+        </div>
+
+        <!--This table is never shown but used to annotate both strand tables at once-->
+        <table id='combinedTable' style='display: none'></table>
+
+        <!-- <nav style='background-color: #007bff; bottom:0px; height:64px; position:fixed; width:100%; z-index: 0;'>
+
+
+
+            <button id='submitAssignmentAnswers' class="btn waves-effect waves-light btn-small right disabled"
+                style='float:right; margin-top:20px; margin-right:25px'>Submit Answers
+            </button>
+            <a href="#!" id='returnToClassroom' class="btn waves-effect waves-light btn-small right returnToClass"
+                style='float:right; margin-top:20px; margin-right:25px; display: none'>Return To Classroom</a>
+
+        </nav> -->
+    </div>
+
+    <div class='card' id='profileCard' style=' width: 230px; position: absolute; top: 70px; right: 20px; z-index: 3;display: none; box-shadow: 0 2px 10px rgba(0,0,0.9);'>
+        <ul>
+            <li id='changePasswordOption'>
+                <a href='javascript:void(0);' style='padding:14px'>Change Password</a>
+            </li>
+            <li>
+                <a href='/logout' style='padding:14px'>Log out</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- update user details -->
+    <div class='card' id='updateUser'>
+
+        <form method='POST' action='/Pic/Profile' enctype="multipart/form-data">
+            <span style=' left:46%; top: 10px; font-size:24px ; position: absolute;'>
+                <label style="top: unset">
+                    <div class="material-icons profile-picture">
+                        <img id='editProfilePic' style='width:50px; height:50px; cursor: pointer;'
+                            src="/css/classroom_selector/default-user-profile-picture-7.png" />
+                    </div>
+                    <input name='ProfilePic' id="file-input" onchange="this.form.submit()" type="file" />
+                </label>
+            </span>
+        </form>
+
+
+
+        <a href="javascript:void(0);">
+            <i id='closeUpdateUser' class="material-icons" style='font-size: 2.2rem; float: right; margin-right: 10px;margin-top: 5px'>close</i>
+        </a>
+
+        <div class="input-field" style='margin-top: 50px'>
+            <input type="text" name='changeName' id="changeName" value='' readonly />
+            <label for="changeName" style='color:#007bff'>Name</label>
+            <div class="bar"></div>
+        </div>
+        <form id='updateUsername'>
+            <div class="input-field" style='display:inline-block; width:62%'>
+                <input type="text" name='changeUsername' id="changeUsername" value='' required="required" />
+                <label for="changeUsername" style='color:#007bff'>Username</label>
+            </div>
+            <div id='username-error' class='error' style='display:none'>
+
+            </div>
+            <button type='submit' id='UsernameUpdate' class='button' style='float:right; margin:20px;'>Update</button>
+
+    </div>
+
+    <div id='changePasswordCard' style='padding:12px; width:458px; position: absolute; top: 12%; left: 25%; z-index: 999; overflow-y: auto; display: none; background-color: white'>
+        <div style='font-size:24px'>Change Password
+            <a href="javascript:void(0);">
+                <i id='closePasswordCard' class="material-icons" style='font-size: 2.2rem; float: right; margin-right: 10px;margin-top: 5px'>close</i>
+            </a>
+        </div>
+        <form id='passwordForm' method='POST' action='/ChangePassword'>
+            <!--The email is for authentication purposes only, it is not displayed for users-->
+            <input type="email" name='email' id="email" required="required" value='' style='display:none' />
+            <div class='input-field'>
+                <input type="password" name='password' id="password" required="required" />
+                <label for="newPassword" style='color:#007bff'>Old Password</label>
+            </div>
+            <div class='input-field'>
+                <input type="password" name='changePassword' id="newPassword" required="required" />
+                <label for="newPassword" style='color:#007bff'>New Password</label>
+            </div>
+
+            <div class='input-field'>
+                <input type="password" name='changeCPassword' id="newCPassword" required="required" />
+                <label for="newCPassword" style='color:#007bff'>Confirm New Password</label>
+            </div>
+
+
+            <button type='submit' id='ConfirmPassword' class='button' style='float:right;'>Update Password</button>
+        </form>
+
+    </div>
+
+    <div class='card' id='newClause'>
+
+        <span id='ClauseHeading' style='left:10px; top: 10px; font-size: 24px ; position: absolute;'>New
+            Clause</span>
+        <a href="javascript:void(0);">
+            <i id='closeNewClause' class="material-icons" style='font-size: 1.8rem; float: right; margin-right: 10px;margin-top: 15px'>close</i>
+        </a>
+        <br /><br /><br />
+
+
+        <div class="form-step js-form-step" data-step="1">
+
+            <form id='newClauseForm' class="col s12">
+                <div id='error-Clause' class='alert-block alert-danger' style='display : none;'> There is an error. </div>
+
+                <div class="row" class='newClauseInputs' style="padding-right: 5%; padding-left: 5%">
+
+                    <div class="input-field">
+                        <input type="text" name="clause" id="clause" aria-required="true" required minlength='3' />
+                        <label for="clause">Clause</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" name="context" id="context" aria-required="true" required minlength='3' />
+                        <label for="context">Context</label>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="context" style="position: relative">Visibility: Private?</label>
+                        <input type="checkbox" name="visibility" id="visibility">
+                    </div>
+
+                    <button id='ConfirmCreateClause' type="submit" class="btn waves-effect waves-light btn-small" style='background-color: #4CAF50;float:right; margin-top:5px;'>Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div id='overlay'></div>
+</body>
+
+<% if (groupId) { %>
+    <script type="application/javascript">
+        var groupId = "<%=groupId%>";
+    </script>
+    <% } %>
+        <script src="/js/config/port.js"></script>
+        <script src="/js/jquery.js"></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+        <script src="/js/jquery.cookie.js"></script>
+        <!-- Javascript -->
+        <!-- <script src="../../config/port2.js"></script> -->
+        <!-- <script src="/Controllers/SFL_Draw/jquery.js"></script> -->
+        <!--<script src='/css/SFL_Draw/MaterialW|Oautcomplete.js'></script>-->
+        <script src="/css/SFL_Draw/materialize/js/materialize.min.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/jquery-ui.js"></script>
+        <script src=" https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+         <script src="/Controllers/SFL_Draw/Panel_javascripts/jquery-outside-events-plugin.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/Controllers/SFL_Draw/annotator.js"></script>
+        <script src="/Controllers/SFL_Draw/lodash.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/tablecellsselection.js"></script>
+        <script src="/Controllers/SFL_Draw/Editor_javascripts/EditorCreator.js"></script>
+        <script src="/Controllers/SFL_Draw/Editor_javascripts/editorActions.js"></script>
+         <script src="/Controllers/SFL_Draw/Panel_javascripts/tableAnnotations.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/oneStrandTable.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/threeStrandTable.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/compareTables.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/compareTrees.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/EditRootClause.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/AddCaption.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/panelCreator.js"></script>
+        <script src="/Controllers/SFL_Draw/annotator.touch.js"></script>
+        <script src="/Controllers/SFL_Draw/highlighter.js ">
+        </script>
+        <script src="/Controllers/SFL_Draw/taggle.min.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/ExportJSON.js"></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/uploadFile.js "></script>
+        <!-- <script src="/Controllers/SFL_Draw/SFG_functions/api_calls.js "></script> -->
+        <script src="/Controllers/SFL_Draw/SFG_functions/initialise.js "></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/reposition.js "></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/redraw.js "></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/nav_bar.js "></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/api_calls.js "></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/annotation_functions.js "></script>
+        <script src="/Controllers/SFL_Draw/main.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/ExportJSON.js"></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/ExportSFLTree.js"></script>
+        <script src="/Controllers/SFL_Draw/SFG_functions/getfunctions.js "></script>
+        <script src="/Controllers/SFL_Draw/Panel_javascripts/tableCreator.js"></script>
+        <script src="/Controllers/formValidation/dist/jquery.validate.min.js"></script>
+        <script src="/Controllers/formValidation/dist/additional-methods.min.js"></script>
+      
+        <script src='/Controllers/Teacher_Classroom/TableMaker.js'></script>
+        <script src="/js/clauseDisplay.js"></script>
+        <!-- <script src="/Controllers/clasroom_select/UserProfileCard.js"></script> -->
+        <!-- <script src="/Controllers/Teacher_Classroom/GetClassroom.js"></script>
+<script src="/Controllers/SFL_Draw/Editor_javascripts/teacher_settings.js"></script> -->
+        <script src="http://d3js.org/d3.v3.min.js "></script>
+        <!-- <script src='/Controllers/message_controller/message.js'></script>
+ -->
+        <script type="text/javascript">
+            initialiseDownload();
+            //defineVariables();
+            //load file into textarea
+            //initialiseTheProgram();
+
+            /*     async function initialiseTheProgram() {
+                    document.getElementById('putcontentshere').innerHTML = ''
+                    assignment = await getAssignmentInfo();
+                    user = await getCurrentUser();
+                    isTeacher = false;
+                    if (user.role == 'Teacher') {
+                        isTeacher = true;
+                    }
+                    document.getElementById('putcontentshere').innerHTML = assignment.Files.Contents;
+                    array_clauses = $('#putcontentshere .two');
+    
+                    var innerhtml = '<tr><th>Tools</th><th>Clause List</th></tr>'
+                    for (var x = 0; x < array_clauses.length; x++) {
+                        innerhtml += '<tr><td><i id ="analysisShortCut" class="fa fa-pencil-square-o w3-margin-right"></i><i id ="treeShortCut" class="fa fa-tree w3-margin-right"></i><i id ="otherShortCut" class="fa fa-code w3-margin-right"></i><div class="icon-preview col s1 m2" ><input id="isAnalysed' + x + '" disabled="disabled" type="checkbox"/><span id="isAnalysed" style="cursor:unset">Analysed</span></div></td><td class="clauseAlignment"><span id="flip" onclick= "changedSelectedSentence(this.innerHTML)">';
+                        innerhtml += array_clauses[x].innerHTML + "</span></td></tr>";
+                    }
+                    document.getElementById('putcontentshere').innerHTML = innerhtml
+                    filename = assignment.Files.Name;
+                    assignment_content_arr = [], tablesStored = [];
+                    defineVariables(); // loads in all data associated with file
+                    initUserCard();
+                    getSentence();
+                    initShortCuts() //allow short cuts to operate
+                    initialiseDownload();
+                    initaliseSettings()
+                    $('.tabs').tabs();
+    
+                } */
+
+            /*     async function getAssignmentInfo() {
+                    return new Promise(function (resolve, reject) {
+                        $.get(
+                            port2 + "SFL_Draw/GetAssignment/",
+                            function (data) {
+                                resolve(data);
+                            }
+                        );
+                    });
+                }
+    
+                async function getCurrentUser() {
+                    return new Promise(function (resolve, reject) {
+                        $.get(
+                            port2 + "user/",
+                            function (data) {
+                                //var res = data;
+                                resolve(data);
+                            }
+                        );
+                    });
+                } */
+        </script>
+
+</html>

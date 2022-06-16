@@ -1,0 +1,2 @@
+$('#messages').addClass('alert-block alert-danger').css({ 'border-bottom': 'none' }).delay(2000).slideUp();
+$('ul .success').parent().addClass('alert-block alert-success').css({ 'border-bottom': 'none' })

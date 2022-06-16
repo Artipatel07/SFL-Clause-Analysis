@@ -1,0 +1,167 @@
+/* index sentence, classes must be given names that the user will unlikely use to 
+describe an element name*/
+.superscript {
+    position: relative;
+    bottom: 0.5em;
+    color: red;
+    font-size: 0.8em;
+}
+
+#putcontentshere tbody tr td:hover {
+  background-color: #E0E0E0;
+}
+.subscript {
+    position: relative;
+    top: 0.3em;
+    color: blue;
+    font-size: 0.5em;
+    font-variant: normal;
+}
+/* under lines */
+.ULtwo {
+    line-height: 24px;
+    padding-bottom: 4px;
+    background: linear-gradient(0deg, green 2px, white 1px, transparent 1px);
+}
+
+.ULthree {
+    line-height: 28px;
+    padding-bottom: 8px;
+}
+.ULfour {
+    line-height: 32px;
+    padding-bottom: 12px;
+}
+
+#putcontentshere {
+    background-color: #FFF;
+    margin-top: 5px;
+}
+
+nav ul a, nav .brand-logo {
+    color: #444;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+.containerOfAll {
+    min-height:100%;
+   position:relative;
+}
+
+img:hover {
+
+    opacity: 0.8; /* 1 = 100%, 0 = 0% */
+    
+    /* or the drop-shadow effect */
+    
+    box-shadow: 0 1px 8px black; /* goes x-axis, y-axis, blur, (stretch factor on x-axis, not used here), colour */
+    
+}
+
+.material-icons{
+    cursor : pointer;
+}
+ul{
+    margin:0px
+  }
+
+  .button {
+
+    display: inline-block;
+    margin: 0.5em;
+    padding: .4em .5em;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border: none;
+    font-size: 15px;
+    text-align: center;
+    background-color: #03A9F4;
+    color: white;
+ 
+}
+
+.button:hover {
+  box-shadow: 1px 6px 15px rgba(0,0,0,0.5);
+}
+
+.green {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.red {
+  background-color: #F44336;
+  color: white;
+}
+
+.ripple {
+  position: absolute;
+  background: rgba(0,0,0,.25);
+  border-radius: 100%;
+  transform: scale(0.2);
+  opacity:0;
+  pointer-events: none;
+  -webkit-animation: ripple .75s ease-out;
+  -moz-animation: ripple .75s ease-out;
+  animation: ripple .75s ease-out;
+}
+
+@-webkit-keyframes ripple {
+  from {
+    opacity:1;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes ripple {
+  from {
+    opacity:1;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  from {
+    opacity:1;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+#file-input{
+    display: none;
+}
+
+.tabs li{
+  border-bottom: none !important;
+}
+#overlay2,#overlay3 {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 899;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}​

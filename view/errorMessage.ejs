@@ -1,0 +1,12 @@
+<div id="messages">
+  <% Object.keys(messages).forEach(function (type) { %>
+    <ul class="<%= type %>">
+      <% messages[type].forEach(function (message) { %>
+        <li style='border-bottom : none'>
+          <%= message %>
+        </li>
+        <% }) %>
+</div>
+</ul>
+<% }) %>
+  </div>

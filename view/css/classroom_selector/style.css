@@ -1,0 +1,597 @@
+ul {
+    padding: 0;
+    list-style: none;
+    margin: 0px;
+    width: 100%;
+}
+
+ul li {
+    border-bottom: 1px solid #cccccc;
+}
+
+li {
+    height: 50px;
+    font-weight: 400;
+}
+
+ul li a {
+    text-decoration: none;
+    padding: 20px 10px;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/*this is to grey out the background*/
+
+#overlay2,
+#overlay3 {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 899;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+​ .material-icons {
+    font-size: 1.7rem !important;
+    color: #000;
+}
+
+.gallery-item {
+    margin-left: 20px;
+    width: 20%;
+    border-radius: 5px;
+    float: left;
+    min-height: 200px;
+    background-color: #007bff;
+}
+
+.p {
+    padding: 0px !important;
+    padding-left: 15px !important;
+}
+
+h4 {
+    margin: 0rem 0 0.912rem 0;
+}
+
+
+/*adaptable image*/
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*idle style*/
+
+.description {
+    align-items: stretch;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.90);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: all .25s ease-in-out;
+}
+
+
+/* hover trasformation
+.gallery-item:hover .description{
+  opacity:1;
+  font-size:14px;
+}*/
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+    width: 24px;
+}
+
+.container {
+    padding-left: 10px;
+    width: auto;
+}
+
+
+/*
+  .group {
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+label {
+  position: absolute;
+  top: 56.6666666667px;
+  color: rgba(0, 0, 0, 0.5);
+  font: 400 16.6666666667px Roboto;
+  cursor: text;
+  transition: .25s ease;
+}
+
+input {
+  width: 100% !important;
+
+}
+input:valid ~ label {
+  top: 30px;
+  font: 700 14px Roboto;
+  color: rgba(255, 255, 255, 0.5);
+}
+input:focus {
+  outline: none;
+}
+input:focus ~ label {
+  top: 30px;
+  font: 700 14px Roboto;
+  color: #007bff !important;
+}
+input:focus ~ .bar:before {
+  transform: translateX(0);
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #007bff inset;
+  -webkit-text-fill-color: white !important;
+}
+
+.bar {
+  background: #A0A0A0;
+  content: '';
+  width: 100%;
+  height: 3.0px;
+  transition: .3s ease;
+  position: relative;
+}
+.bar:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  background: #2196f3;
+  transform: translateX(-100%);
+}
+
+::selection {
+  background: rgba(33, 150, 243, 0.3);
+}*/
+
+
+/*buttons*/
+
+.button {
+    display: inline-block;
+    margin: 0.5em;
+    padding: .4em .5em;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 15px;
+    text-align: center;
+    background-color: #03A9F4;
+    color: white;
+}
+
+.button:hover {
+    box-shadow: 1px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.red {
+    background-color: #F44336;
+    color: white;
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(0, 0, 0, .25);
+    border-radius: 100%;
+    transform: scale(0.2);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-animation: ripple .75s ease-out;
+    -moz-animation: ripple .75s ease-out;
+    animation: ripple .75s ease-out;
+}
+
+@-webkit-keyframes ripple {
+    from {
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes ripple {
+    from {
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+/*options menu*/
+
+.ui-menu {
+    width: 200px;
+}
+
+.ui-menu-item {
+    height: 55px;
+}
+
+.ui-state-focus {
+    background: rgb(0, 0, 0, 0.1)!important;
+}
+
+.ui-menu .ui-menu-item {
+    position: relative;
+    margin: 0;
+    padding: 3px 1em 3px .4em;
+    cursor: pointer;
+    min-height: 0;
+    list-style-image: none !important;
+}
+
+.ui-menu .ui-menu-item a:hover {
+    background-color: transparent;
+}
+
+.ui-widget-content {
+    color: #222222;
+    border: 1px solid #aaaaaa;
+    background: #ffffff !important;
+}
+
+img:hover {
+    opacity: 0.8;
+    /* 1 = 100%, 0 = 0% */
+    /* or the drop-shadow effect */
+    box-shadow: 0 1px 8px black;
+    /* goes x-axis, y-axis, blur, (stretch factor on x-axis, not used here), colour */
+}
+
+#file-input {
+    display: none;
+}
+
+#file-input2 {
+    display: none;
+}
+
+.progress1 {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    color: #849397;
+}
+
+.progress1>li {
+    position: relative;
+    display: table-cell;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.progress1>li:before {
+    content: attr(data-step);
+    display: block;
+    margin: 0 auto;
+    background: #DFE3E4;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    margin-bottom: 0.25em;
+    line-height: 3em;
+    border-radius: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.progress1>li:after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: #DFE3E4;
+    width: 100%;
+    height: 0.5em;
+    top: 1.25em;
+    left: 50%;
+    margin-left: 1.5em\9;
+    z-index: -1;
+}
+
+.progress1>li:last-child:after {
+    display: none;
+}
+
+.progress1>li.is-complete {
+    color: #4CAF50;
+}
+
+.progress1>li.is-complete:before,
+.progress>li.is-complete:after {
+    color: #FFF;
+    background: #4CAF50;
+}
+
+.progress>li.is-active {
+    color: #3498DB;
+}
+
+.progress1>li.is-active:before {
+    color: #FFF;
+    background: #3498DB;
+}
+
+
+/**
+ * Needed for IE8
+ */
+
+.progress__last:after {
+    display: none !important;
+}
+
+
+/**
+ * Size Extensions
+ */
+
+.progress--medium {
+    font-size: 1.5em;
+}
+
+.progress--large {
+    font-size: 2em;
+}
+
+.progress1 {
+    margin-bottom: 3em;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+
+/*
+
+.input-field textarea:focus + label {
+  color: #2196f3 !important;
+}
+
+.row .input-field textarea:focus {
+  border-bottom: 1px solid #2196f3 !important;
+  box-shadow: 0 1px 0 0 #2196f3 !important
+}*/
+
+error {
+    color: red;
+}
+
+/============================= // Form animations
+// =============================
+.animation-container {
+    position: relative;
+    width: 100%;
+    transition: .3s;
+    will-change: padding;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-step {
+    position: absolute;
+    transition: 1s ease-in-out;
+    transition-timing-function: ease-in-out;
+    will-change: transform, opacity;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.form-step.leaving {
+    animation: left-and-out .5s forwards;
+}
+
+.form-step.waiting {
+    transform: translateX(400px);
+}
+
+.form-step.coming {
+    animation: right-and-in .5s forwards;
+}
+
+// =============================
+// Animation definitions
+// =============================
+@keyframes left-and-out {
+    100% {
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+}
+
+@keyframes right-and-in {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.alert-block {
+    margin-top: 1rem;
+}
+
+.alert-block.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-block.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 10px;
+    margin-top: -15px;
+    /*for last panel in add assignment*/
+}
+
+.newClassroomInput {
+    left: 10px;
+    top: 55px;
+    font: 400 24px Roboto;
+    position: absolute;
+}
+
+.error {
+    color: #cf1717
+}
+
+#editClassroom {
+    border-radius: 4px
+}
+
+#newClassroom {
+    width: 460px;
+    height: 445px;
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    border-radius: 5px;
+    z-index: 999;
+    display: none;
+}
+
+.newClassroomInputs {
+    padding: 10px;
+    margin-top: -18px;
+}
+
+#RegisterUserCard1 {
+    padding: 20px;
+    width: 458px;
+    position: absolute;
+    top: 12%;
+    left: 35%;
+    z-index: 999;
+    display: none;
+    border-radius: 5px;
+}
+
+.upload {
+    margin-top: 10px;
+}
+
+.tabs li {
+    border-bottom: none !important;
+}
+
+.tabs .tab a {
+    color: #AAA;
+}
+
+
+/*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color: #eee;
+    color: #000;
+}
+
+
+/*Text color on hover*/
+
+.tabs .tab a.active {
+    background-color: #007bff !important;
+    color: #FFF;
+}
+
+
+/*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color: #AAA
+}
+
+
+/*Color of underline*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+}

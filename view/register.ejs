@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head'); %>
+        <link rel="stylesheet" type="text/css" href="/css/login/style.css" />
+</head>
+
+<body class="container">
+    <main>
+        <div class="auth-wrapper">
+            <div class="auth-inner">
+                <form id="registerForm" name="registerForm">
+                    <h3>Register</h3>
+
+                    <p id="errorDisplay"></p>
+
+                    <div class="form-group">
+                        <label>User name</label>
+                        <input type="text" class="form-control" name="username" placeholder="User name" value="" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter email address" value="" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Full name</label>
+                        <input type="text" class="form-control" name="fullName" placeholder="First name" value="" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter password" value="" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" name="confirm" placeholder="Enter confirm password" value="" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Register
+                    </button>
+
+                    <p class="forgot-password text-right">
+                        Already registered? <a href="/views/">sign in</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('./partials/footer'); %>
+    </footer>
+    <script src="/js/config/port.js"></script>
+    <script type="application/javascript" src="/js/register.js"></script>
+</body>
+
+</html>

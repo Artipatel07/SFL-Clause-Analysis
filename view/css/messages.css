@@ -1,0 +1,36 @@
+.alert-block
+{
+  margin-top:1rem;
+}
+
+.alert-block.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.alert-block.alert-success
+{
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding:10px;
+  margin-top:-15px; /*for last panel in add assignment*/
+}
+#overlay{
+  height: 100%;
+  width: 100%;
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  z-index: 899;
+  display:none;
+}
