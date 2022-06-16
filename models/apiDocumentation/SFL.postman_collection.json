@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "0a001de1-87af-47a2-b5e7-716e6dee1029",
+		"name": "SFL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"buuzuu9\",\r\n    \"fullName\" : \"Hritik Gupta\",\r\n    \"password\" : \"123123\",\r\n    \"email\" : \"hritikgupta729@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/users/signup",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"hritikgupta24@gmail.com\",\r\n    \"password\" : \"123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/users/signin",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"hritikgupta24@gmail.com\",\r\n    \"password\" : \"123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/users/changePassword",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "Create Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"groupName\" : \"Maynooth English Literature\",\r\n    \"groupID\" : 4,\r\n    \"groupCapacity\" : 100\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/createGroup/buuzuu2",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"createGroup",
+								"buuzuu2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join Group",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/joinGroup/1/buuzuu5",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"joinGroup",
+								"1",
+								"buuzuu5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/allGroups",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"allGroups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/deleteGroup/3",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"deleteGroup",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/getAllMembers/1",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"getAllMembers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Group Member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/removeMember/1/buuzuu5/buuzuu",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"removeMember",
+								"1",
+								"buuzuu5",
+								"buuzuu"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "in",
+						"value": "header",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyaXRpa2d1cHRhMjRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMxMjMiLCJpYXQiOjE2MjIyNDMwMzd9.TiDIhTUWMtGiss9hDGqLsgMG0zW642j_SKapjWmgG4M",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Clauses",
+			"item": [
+				{
+					"name": "Add Clause",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(responseJson.message).to.be.a('string');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"createdBy\" : \"buuzuu\",\r\n    \"clause\" : \"May your work always bring you prosperity.\",\r\n    \"context\" : \"Social\",\r\n    \"visibility\" : \"public\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/addClause/2",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"addClause",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Public Clause",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/getAllPub/2",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"getAllPub",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Private Clause",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/getAllPvt/1",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"getAllPvt",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Clause",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/getClause/2/60b3af9d532c0d000413142f",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"getClause",
+								"2",
+								"60b3af9d532c0d000413142f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Clauses",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/deleteAll/1",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"deleteAll",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Clause",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/delete/1/60b3afab532c0d0004131432",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"delete",
+								"1",
+								"60b3afab532c0d0004131432"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Clause",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clause\" : \"This is updated clause...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/updateClause/1/60b3a7c9532c0d000413142c",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"updateClause",
+								"1",
+								"60b3a7c9532c0d000413142c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Visibility",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/changeVisibility/1/60b3a7c9532c0d000413142c",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"changeVisibility",
+								"1",
+								"60b3a7c9532c0d000413142c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Context",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"context\" : \"Testing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/updateContext/1/60b3a7c9532c0d000413142c",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clause",
+								"updateContext",
+								"1",
+								"60b3a7c9532c0d000413142c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "in",
+						"value": "header",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyaXRpa2d1cHRhMjRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMxMjMiLCJpYXQiOjE2MjIyNDMwMzd9.TiDIhTUWMtGiss9hDGqLsgMG0zW642j_SKapjWmgG4M",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "Get A Analysis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clauseID\" : \"60fdb3906958a539e0daabaf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/analysis/getAnalysis",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"analysis",
+								"getAnalysis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Analysis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/analysis/allAnalysis",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"analysis",
+								"allAnalysis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Answers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://hritik-gupta-sfl.herokuapp.com/analysis/saveAnswers",
+							"protocol": "https",
+							"host": [
+								"hritik-gupta-sfl",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"analysis",
+								"saveAnswers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyaXRpa2d1cHRhMjRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMxMjMiLCJpYXQiOjE2MjIyNDMwMzd9.TiDIhTUWMtGiss9hDGqLsgMG0zW642j_SKapjWmgG4M",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
