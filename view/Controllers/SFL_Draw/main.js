@@ -457,21 +457,44 @@ function saveAnswers(answers) {
   });
 }
 
-getTree = function() {
-  var nodes;
+getTree = function(body) {
+  var nodes=[];
   var res;
+  var body={
+    body: body
+  }
   return new Promise(function(resolve, reject) {
-      $.post(
-          backendPort + "/analysis/treetest", {
-              body
-          },
-          function(data) {
-              var res = JSON.stringify(data).slice(1, -1).replace(/\\/g, "");
-              nodes = JSON.parse(res);
-              resolve(nodes);
-          }
-      );
+  $.ajax({
+    type: "POST",
+    url: backendPort + "/analysis/treetest",
+    data: body,
+    dataType: "json",
+    encode: true,
+    beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
+    success: function(data) {
+      var res = JSON.stringify(data).slice(1, -1).replace(/\\/g, "");
+      nodes[0] = JSON.parse(res);
+     resolve(nodes) ;
+    },
+    error: function(xhr, status, error) {
+        console.log(status);
+        console.log(error);
+    }
+  // var nodes;
+  // var res;
+  // return new Promise(function(resolve, reject) {
+  //     $.post(
+  //         backendPort + "/analysis/treetest", {
+  //             body
+  //         },
+  //         function(data) {
+  //             var res = JSON.stringify(data).slice(1, -1).replace(/\\/g, "");
+  //             nodes = JSON.parse(res);
+  //             resolve(nodes);
+  //         }
+  //     );
   });
+});
 }
 
 function joinStrandTables() {

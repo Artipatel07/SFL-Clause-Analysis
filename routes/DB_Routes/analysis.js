@@ -20,12 +20,6 @@ router.post('/getAnalysis', auth, async(req, res) => {
     return res.status(200).send(allAnalysis)
 })
 router.post('/treetest/', (req, res) => {
-    //console.log("SFL Generating!");
-    const note = {
-      text: req.body,
-      title: req.body.title
-    };
-
     var myJSON = JSON.stringify(req.body.body).slice(1, -1).replace(/\\/g, "");
     var doc_width = JSON.stringify(req.body.d_width);
     myJSON = JSON.stringify(treeStruc.tree(myJSON, doc_width));
@@ -33,6 +27,7 @@ router.post('/treetest/', (req, res) => {
     res.send(myJSON);
     res.send(doc_width);
   });
+  
 
 
 

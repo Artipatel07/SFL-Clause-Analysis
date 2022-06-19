@@ -1,15 +1,22 @@
 {
-    "name": "20251132_sfl",
-    "version": "1.0.0",
-    "description": "REST API to manage SFL Clauses",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon index.js"
-    },
-    "author": "Hritik Gupta",
-    "license": "ISC",
-    "dependencies": {
+  "name": "sfl-clause-analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artipatel07/SFL-Clause-Analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Artipatel07/SFL-Clause-Analysis/issues"
+  },
+  "dependencies": {
         "bcrypt": "^5.0.0",
         "body-parser": "^1.19.0",
         "cors": "^2.8.5",
@@ -22,5 +29,6 @@
         "mongoose": "^5.11.13",
         "nodemon": "^2.0.9",
         "path": "^0.12.7"
-    }
+		},
+  "homepage": "https://github.com/Artipatel07/SFL-Clause-Analysis#readme"
 }

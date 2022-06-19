@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0a001de1-87af-47a2-b5e7-716e6dee1029",
+		"_postman_id": "bf8e5ff4-97e7-448f-99f6-4799ade920a7",
 		"name": "SFL",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18587945"
 	},
 	"item": [
 		{
@@ -15,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"buuzuu9\",\r\n    \"fullName\" : \"Hritik Gupta\",\r\n    \"password\" : \"123123\",\r\n    \"email\" : \"hritikgupta729@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"Arti001\",\r\n    \"fullName\" : \"Arti Patel\",\r\n    \"password\" : \"123123\",\r\n    \"email\" : \"artipatel@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,10 +24,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/users/signup",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/users/signup",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -45,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"hritikgupta24@gmail.com\",\r\n    \"password\" : \"123123\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"artipatel@gmail.com\",\r\n    \"password\" : \"1231234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,10 +54,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/users/signin",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/users/signin",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -75,7 +76,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"hritikgupta24@gmail.com\",\r\n    \"password\" : \"123123\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"artipatel@gmail.com\",\r\n    \"password\" : \"1231234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -83,10 +84,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/users/changePassword",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/users/changePassword",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -116,7 +117,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"groupName\" : \"Maynooth English Literature\",\r\n    \"groupID\" : 4,\r\n    \"groupCapacity\" : 100\r\n   \r\n}",
+							"raw": "{\r\n    \"groupName\" : \"Maynooth English Literature\",\r\n    \"groupID\" : 4,\r\n    \"groupCapacity\" : 5\r\n   \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -124,17 +125,17 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/createGroup/buuzuu2",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/createGroup/Arti@21250",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"group",
 								"createGroup",
-								"buuzuu2"
+								"Arti@21250"
 							]
 						}
 					},
@@ -145,19 +146,23 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/joinGroup/1/buuzuu5",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/joinGroup/123456/Arti001",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"group",
 								"joinGroup",
-								"1",
-								"buuzuu5"
+								"123456",
+								"Arti001"
 							]
 						}
 					},
@@ -169,10 +174,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/allGroups",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/allGroups",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -190,17 +195,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/deleteGroup/3",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/deleteGroup/112222",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"group",
 								"deleteGroup",
-								"3"
+								"112222"
 							]
 						}
 					},
@@ -212,17 +217,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/getAllMembers/1",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/getAllMembers/123456",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"group",
 								"getAllMembers",
-								"1"
+								"123456"
 							]
 						}
 					},
@@ -234,19 +239,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/group/removeMember/1/buuzuu5/buuzuu",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/removeMember/123456/Arti001/arti@071",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"group",
 								"removeMember",
-								"1",
-								"buuzuu5",
-								"buuzuu"
+								"123456",
+								"Arti001",
+								"arti@071"
 							]
 						}
 					},
@@ -320,7 +325,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"createdBy\" : \"buuzuu\",\r\n    \"clause\" : \"May your work always bring you prosperity.\",\r\n    \"context\" : \"Social\",\r\n    \"visibility\" : \"public\"    \r\n}",
+							"raw": "{\r\n    \"createdBy\" : \"Arti@21250\",\r\n    \"clause\" : \"May your work always bring you prosperity.\",\r\n    \"context\" : \"Social\",\r\n    \"visibility\" : \"public\"    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -328,17 +333,17 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/addClause/2",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/addClause/123456",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"addClause",
-								"2"
+								"123456"
 							]
 						}
 					},
@@ -350,17 +355,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/getAllPub/2",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/getAllPub/123456",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"getAllPub",
-								"2"
+								"123456"
 							]
 						}
 					},
@@ -372,17 +377,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/getAllPvt/1",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/getAllPvt/123456",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"getAllPvt",
-								"1"
+								"123456"
 							]
 						}
 					},
@@ -394,18 +399,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/getClause/2/60b3af9d532c0d000413142f",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/getClause/123456/6293c9726e42c551e0f4fd21",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"getClause",
-								"2",
-								"60b3af9d532c0d000413142f"
+								"123456",
+								"6293c9726e42c551e0f4fd21"
 							]
 						}
 					},
@@ -417,10 +422,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/deleteAll/1",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/deleteAll/1",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -439,18 +444,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/delete/1/60b3afab532c0d0004131432",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/delete/123456/6293c9726e42c551e0f4fd21",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"delete",
-								"1",
-								"60b3afab532c0d0004131432"
+								"123456",
+								"6293c9726e42c551e0f4fd21"
 							]
 						}
 					},
@@ -471,18 +476,18 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/updateClause/1/60b3a7c9532c0d000413142c",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/updateClause/123456/6293c9116e42c551e0f4fd1f",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"updateClause",
-								"1",
-								"60b3a7c9532c0d000413142c"
+								"123456",
+								"6293c9116e42c551e0f4fd1f"
 							]
 						}
 					},
@@ -494,18 +499,18 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/changeVisibility/1/60b3a7c9532c0d000413142c",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/changeVisibility/123456/6293c9116e42c551e0f4fd1f",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"changeVisibility",
-								"1",
-								"60b3a7c9532c0d000413142c"
+								"123456",
+								"6293c9116e42c551e0f4fd1f"
 							]
 						}
 					},
@@ -526,18 +531,18 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/clause/updateContext/1/60b3a7c9532c0d000413142c",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/clause/updateContext/123456/6293c9116e42c551e0f4fd1f",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"clause",
 								"updateContext",
-								"1",
-								"60b3a7c9532c0d000413142c"
+								"123456",
+								"6293c9116e42c551e0f4fd1f"
 							]
 						}
 					},
@@ -595,7 +600,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"clauseID\" : \"60fdb3906958a539e0daabaf\"\r\n}",
+							"raw": "{\r\n    \"clauseID\" : \"6293c9116e42c551e0f4fd1f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -603,10 +608,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/analysis/getAnalysis",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/getAnalysis",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -624,10 +629,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/analysis/allAnalysis",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/allAnalysis",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
@@ -644,17 +649,53 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://hritik-gupta-sfl.herokuapp.com/analysis/saveAnswers",
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/saveAnswers",
 							"protocol": "https",
 							"host": [
-								"hritik-gupta-sfl",
+								"sfl-clause-analysis-01",
 								"herokuapp",
 								"com"
 							],
 							"path": [
 								"analysis",
 								"saveAnswers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate SFL",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "body: {\"Clause\":{\"ngp\":{\"dd\":{\"the\":{}},\"th\":{\"canvas\":{}},\"m|adjgp\":{\"t\":{\"in\":{}},\"a\":{\"the\":{}},\"th\":{\"bedroom\":{}}}}}}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/analysis/treetest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"analysis",
+								"treetest"
 							]
 						}
 					},
