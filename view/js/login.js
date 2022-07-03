@@ -14,8 +14,10 @@ $(document).ready(function() {
                 //document.cookie = "token=" + data.token + "";
                 $.cookie("token", data.token);
                 $.cookie("username", data.username);
+                localStorage.setItem("Username",data.username);
+                localStorage.setItem("token", data.token);
                 setTimeout(() => {
-                    window.location.href = window.location.href + '/dashboard';
+                    window.location.href =  'views/dashboard';
                 }, 1000);
 
             },

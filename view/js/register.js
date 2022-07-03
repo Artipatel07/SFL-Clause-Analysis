@@ -20,6 +20,7 @@ $(document).ready(function() {
                     //document.cookie = "token=" + data.token + "";
                     $.cookie("token", data.token);
                     $.cookie("username", data.username);
+                    localStorage.setItem("Username",data.username);
                     setTimeout(() => {
                         window.location.href = '/views/dashboard';
                     }, 1000);

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Group</title>
+
+
+    <link rel="stylesheet" href="/css/SFL_Draw/materialize/css/materialize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/classroom_selector/userCard.css">
+    <link rel="stylesheet" href="/css/messages.css">
+    <link rel="stylesheet" href="/css/classroom_selector/style.css">
+    <link rel="stylesheet" href="/css/DropAndUpload.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <nav style='background-color: #007bff' role="navigation">
+        <div class="nav-wrapper ">
+            <div class='left' style='color:white; font-size: 25px; margin-left:16px'>
+                Groups
+            </div>
+            
+               
+              
+            <span class="profile-picture right" style='color:white; margin-right:16px; cursor: pointer;'>
+                <i class='material-icons' style='font-size: 25px' onclick="Logout()">logout
+                </i>
+            </span>
+        </div>
+    </nav>
+
+
+
+   <div style= 'margin-right: 30px'>
+    <div style= 'background-color: orange;'>My Groups</div>
+    <table class="Assesment-table" id ="Document">
+    </table>    
+</div>
+
+<div style= 'margin-right: 30px'>
+    <div style= 'background-color: orange;'>Other Groups</div>
+    <table class="Assesment-table" id ="Document1">      
+    </table>    
+</div>
+
+<div style= 'margin-right: 30px'>
+    <div style= 'background-color: orange;'>Invitations</div>
+    <table class="Assesment-table" id ="Document12">
+    </table>    
+</div>
+ 
+<div id='insertClassroomsHere'>
+</div>
+
+<div class='card' id='editClassroom' style='left: 50%; top:45%; padding:12px; width:458px; position: absolute; z-index: 999; overflow-y: auto; display: none; background-color: white; transform:translate3d(-50%, -50%, 0)'>
+
+    <span style='left:10px; top: 10px; font-size:24px; position: absolute;'>Edit
+        Classroom</span>
+
+    <form method='POST' action='/Pic/ClassroomPic' enctype="multipart/form-data" id='classroomPicForm'>
+        <span style=' left:46%; top: 10px; font-size:24px; position: absolute;'>
+            <label style="top: unset">
+                <div class="material-icons profile-picture">
+                    <img id='editClassroomPic' style='width:40px; height:40px; cursor: pointer;'
+                        src="/css/classroom_selector/card_background.png" />
+                </div>
+                <input name='ClassroomPic' id="file-input2" onchange="this.form.submit()" type="file" />
+            </label>
+        </span>
+    </form>
+
+    <a href="javascript:void(0);">
+        <i id='closeEditClassroom' class="material-icons" style='font-size: 1.5rem; float: right; margin-right: 10px; margin-top: 5px'>close</i>
+    </a>
+
+    <form method='POST' action='/Classroom/Select/edit/' id='editClassroomForm'>
+
+        <div class="input-field" style='margin-top: 50px'>
+            <input type="text" name='ClassroomName' id="ClassroomName" required="required" />
+            <label for="newClassroomSubject" style='color:rgba(44, 89, 172, 0.5)'>Classroom
+                Name</label>
+        </div>
+
+        <div class="input-field">
+            <input type="text" name='Module' id="Module" required="required" />
+            <label for="newClassroomSubject" style=' color:rgba(44, 89, 172, 0.5)'>Module</label>
+        </div>
+
+        <div class="input-field">
+            <textarea class="materialize-textarea" name='ClassroomDescript' id="ClassroomDescript" required="required" /></textarea>
+            <label for="ClassroomDescript" style=' color:rgba(44, 89, 172, 0.5)'>Classroom
+                Description</label>
+        </div>
+        <button id='ConfirmEditClassroom' type='submit' class='button' style='float:right; margin:20px;'>Update
+            Classroom</button>
+
+    </form>
+
+    
+</div>
+<div class='card' id='newClassroom'>
+
+    <span id='classroomHeading' style='left:10px; top: 10px; font-size: 24px ; position: absolute;'>Send Invite</span>
+    <a href="javascript:void(0);">
+        <i id='closeNewClassroom' class="material-icons" style='font-size: 1.8rem; float: right; margin-right: 10px;margin-top: 15px'>close</i>
+    </a>
+    <br /><br /><br />
+
+
+    <div class="form-step js-form-step" data-step="1">
+
+        <form id='newClassroomForm' class="col s12" name="invite">
+            <div id='error-Classroom' class='alert-block alert-danger' style='display : none; width:95%'> There is an error. </div>
+
+            <div class="row" class='newClassroomInputs'>
+
+                <div class="input-field">
+                    <input type="text" name='groupName' id="groupName" aria-required="true" required minlength='3' />
+                    <label for="groupName">Group Name</label>
+                </div>
+                <div class="input-field">
+                    <input list="browsers" name="browser">
+  <datalist id="browsers">
+  </datalist>
+                    <label for="groupID">Group Id</label>
+                </div>
+
+                <button id='ConfirmCreateClassroom' class="btn waves-effect waves-light btn-small" style='background-color: #4CAF50;float:right; margin-top:5px;'>Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+<div id='overlay'></div>
+<div style='position: absolute; display:none; top:64px' id='overlay2'></div>
+
+
+
+</body>
+
+<script src="/js/config/port.js"></script>
+<script src="/js/jquery.js"></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src="/js/jquery.cookie.js"></script>
+<script type="application/javascript" src="/js/group.js"></script>
+<!-- <script src="/Controllers/formValidation/dist/jquery.validate.min.js"></script>
+<script src="/Controllers/formValidation/dist/additional-methods.min.js"></script>
+<script src='/Controllers/Teacher_Classroom/progressBar.js'></script>
+<script src="/Controllers/clasroom_select/ValidateNewClassroom.js"></script>
+<script src="/Controllers/clasroom_select/ValidateNewStudent.js"></script> -->
+<!-- <script src='/config/port2.js'></script> -->
+<!-- <script src="/Controllers/clasroom_select/UserProfileCard.js"></script> -->
+<script src='/css/SFL_Draw/materialize/js/materialize.min.js'></script>
+<!-- <script src='/Controllers/clasroom_select/RegisterStudents.js'></script> -->
+<!-- <script src='/Controllers/message_controller/message.js'></script>
+<script src='/Controllers/clasroom_select/addStudentsToClassroom.js'></script> -->
+<!-- <script src='/Controllers/clasroom_select/classroom_selector_controller.js'></script> -->
+
+</html>

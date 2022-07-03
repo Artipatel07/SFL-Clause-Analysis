@@ -36,6 +36,10 @@ function Logout(groupId, clauseId) {
     });
 }
 
+$('#studentButton').click(function () {
+// window.location.href ="views/group";
+});
+
 $(document).ready(function() {
 
     $('.description').hover(function() {
@@ -59,7 +63,7 @@ $(document).ready(function() {
     setTimeout(() => {
         $.ajax({
             type: "GET",
-            url: backendPort + "/group/allGroups",
+            url: backendPort + "/group/allGroups/" + localStorage.getItem("Username"),
             dataType: "json",
             encode: true,
             beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },

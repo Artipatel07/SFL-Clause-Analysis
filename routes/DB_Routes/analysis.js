@@ -1,9 +1,11 @@
 const express = require('express');
 const AnswerSchema = require('../../models/answers')
 const Groups = require('../../models/groups')
+const InviteSchema = require('../../models/Invites')
 const auth = require('../../middleware/authenticate')
 const mongoose = require('mongoose')
 var treeStruc = require("./treeStruc");
+const groups = require( '../../models/groups' );
 const router = express.Router();
 
 
@@ -27,7 +29,21 @@ router.post('/treetest/', (req, res) => {
     res.send(myJSON);
     res.send(doc_width);
   });
-  
+
+  router.post('/sendInvite/' , async(req, res) => {
+    let analysisObject = new InviteSchema({
+        AdminID: req.body.AdminID,
+        GroupID: req.body.GroupID,
+        Invite_TO: req.body.Invite_TO,
+        Status: req.body.Status
+    })
+   // var id = mongoose.Types.ObjectId(req.body.clauseID);
+    await analysisObject.save().catch(err => res.status(400).send(err))
+    if (!analysisObject) return res.status(400).send({ message: "Something went wrong." })
+    return res.status(200).send(analysisObject)
+})
+
+
 
 
 

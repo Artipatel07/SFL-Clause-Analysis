@@ -23,6 +23,34 @@ ul li a {
     color: #000;
 }
 
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+
 
 /*this is to grey out the background*/
 
@@ -60,6 +88,58 @@ ul li a {
 h4 {
     margin: 0rem 0 0.912rem 0;
 }
+
+.Assesment-table {
+    width: 100%;
+    color: white;
+    background-color: #082349;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: auto;
+  }
+  
+  .Assesment-table td {
+    vertical-align: middle;
+    height: 34px;
+    padding: 10px;
+    border-bottom: solid 1px gray;
+  }
+  
+  .Assesment-table td label {
+    color: #212121;
+  }
+  
+  .Assesment-table th {
+    padding: 10px 22px;
+    vertical-align: middle;
+    border-bottom: 1px solid;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+  }
+  
+  .Assesment-table td {
+    font-size: 15px;
+  }
+  
+  .Assesment-table td:last-of-type {
+    color: light-text;
+    font-size: 15px;
+  }
+  
+  .Assesment-table th {
+    background-color: light-bg;
+  }
+  
+  .Assesment-table tr:hover {
+    background-color: #8d8d8d;
+  }
+  
+  .Assesment-table tr:not(:last-of-type) {
+    border-bottom: 1px solid light-bg;
+  }
 
 
 /*adaptable image*/
@@ -588,6 +668,7 @@ error {
 .tabs .indicator {
     background-color: #AAA
 }
+
 
 
 /*Color of underline*/

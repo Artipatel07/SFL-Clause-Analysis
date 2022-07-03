@@ -210,7 +210,7 @@ function tree() {
 
         
         var analysisObject = { oneStrandTable: tableValues, threeStrandTable: TSTValues, oneStrandTableString: OSTStoredString, threeStrandTableString: TSTStoredString, SFL: clauseInfo.SFL, Tree: clauseInfo.Tree , Annotations: clauseInfo.Annotations };
-        var answerValues = { userName: $.cookie("username"), groupID: groupId, clauseID: selectedSentenceId, analysis: JSON.stringify(analysisObject) };
+        var answerValues = { userName: localStorage.getItem("Username"), groupID: groupId, clauseID: selectedSentenceId, analysis: JSON.stringify(analysisObject) };
         saveAnswers(answerValues);
     
 

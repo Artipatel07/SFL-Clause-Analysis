@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     $("#newClauseForm").on('submit', function() {
         var formData = {
-            createdBy: $.cookie("username"),
+            createdBy: localStorage.getItem("Username"),
             clause: $('#clause').val(),
             context: $('#context').val(),
             visibility: ($('#visibility').is(':checked') ? 'private' : 'public'),
