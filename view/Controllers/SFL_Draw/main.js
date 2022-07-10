@@ -168,7 +168,7 @@ function tree() {
   
         
   
-          tree.nodes = await getTree(body);
+           tree.nodes = await getTree(body);
           reposition(tree.nodes[0]);
           redraw()
           clauseInfo = {
@@ -218,68 +218,88 @@ function tree() {
 
     
       });
-      $("#TreeButton,#OtherButton, #TreeArea").on('click', async function () {
+      $("#TreeButton,#OtherButton").on('click', async function () {
         
-        joinStrandTables();
-        var table = document.getElementById(combinedTable.id);
-        $("table[id^='combinedTable'] tr").each(function(index) {
-            var skip = 0;
-            var arrayV = [];
-            rowCount++;
-            var colCount = 0;
-            $cells = $(this).find("td");
-            $cells.each(function(cellIndex) {
-                var numOfCol = table.rows[index].cells[cellIndex].colSpan; //get the colspan of current cell 
-
-                //check if < is in cell. Change it from &lt to < 
-                arrayV[cellIndex + skip] = table.rows[index].cells[cellIndex].innerHTML.replace(/&lt;/g, '<').replace(/&amp;/g, '&').replace(/&nbsp;/g, '').replace(/&gt;/g, '>').replace(/&quot;/g, "'").replace(/&apos;/g, "'");
-
-                //if colspan is greater than 1, save the details in colspan array, and duplicate value n times, n being the size of colspan. 
-                //Save it in arrayV. Basically arrayV is a clone but each cell is only 1 colspan long
-                if (numOfCol > 1) {
-                    var numOfCol = $(this).attr('colspan');
-                    var colSpanDetails = { csWidth: numOfCol, idOfCell: "combinedEntry" + (index - 1) + "," + cellIndex };
-                    arrayOfColSpan.push(colSpanDetails);
-                    for (var i = 1; i < numOfCol; i++) {
-                        skip++;
-                        arrayV[cellIndex + skip] = table.rows[index].cells[cellIndex].innerHTML;
-                    }
-                }
-                colCount++;
-            });
-            cellValues.push(arrayV);
-        })
-
-        var tableValues = { id: 0, values: [], colspanArray: [], headings: [] };
-        tableValues.id = document.getElementById(currentOneStrandTable).id.replace('table', '');
-        var arrayOfColSpanOST = getColSpanInfo(arrayOfColSpan, false);
-        tableValues.colspanArray = arrayOfColSpanOST;
-        tableValues.values = saveOSTValues(arrayOfColSpanOST);
-        tableValues.headings = saveOSTHeadings();
-        //check if this table has been saved before, if so delete it and make new
-        for (x in tablesStored) {
-            if (tablesStored[x].id == tableValues.id) {
-                tablesStored.splice(x, 1);
-            }
+        
+       
+        var sentenceSelected = document.getElementById('sentence2').innerHTML;
+        sentenceSelected = sentenceSelected.replace(/<span class="ULtwo">/g, ""); //get rid of any UL classes 
+        sentenceSelected = sentenceSelected.replace(/<\/span>/g, "");
+        //save tree before making new tree, this old tree will be saved to database as it would be the non-
+        //grade version
+        var oldTree = document.getElementById('tree-0');
+        if (oldTree != null) { oldTree = oldTree.innerHTML }
+  
+        //$("#Tree_list").on('click', async function(e) {
+        //console.log("sentence : ", sentence);
+  
+        //if (e.target && e.target.nodeName == "LI") {
+        //console.log(e.target.id);
+        //need to ensure no element created by d3 exists when reinitalising the tree div
+        //should only happen is tree.nodes exists
+        if (diff_array != [] && diff_array.length > 0) {
+          resetTree();
+          refresh();
+          refresh_grade();
+          redraw();
+          redraw_grade();
+        } else {
+          resetTree();
+          refresh();
+          redraw();
         }
-        tablesStored.push(tableValues);
-        var OSTStoredString = saveOSTTableAsString(tableValues);
-        var TSTValues = { id: 0, values: [], colspanArray: [], headings: [] };
-        TSTValues.id = document.getElementById(currentThreeStrandTable).id.replace('threeStrandTable', '');
-        arrayOfColSpanTST = getColSpanInfo(arrayOfColSpan, true);
-        TSTValues.colspanArray = arrayOfColSpanTST;
-        TSTValues.values = saveTSTValues(arrayOfColSpanTST);
-        TSTValues.headings = saveTSTHeadings();
-        //check if this table has been saved before, if so delete it and make new
-        for (x in TSTstored) {
-            if (TSTstored[x].id == TSTValues.id) {
-                TSTstored.splice(x, 1);
-            }
+        addAnnotation();
+        //updateTeacher();
+        //document.getElementById("progress-bar").innerHTML = 0 + '%';
+        //document.getElementById("progress-bar").style.width = 0 + '%';
+        var isQuoteAlreadyStored = false;
+  
+        for (x in node_sentence_array) {
+  
+          if (node_sentence_array[x].quote == sentenceSelected || node_sentence_array[x].quote == (" " + sentenceSelected)) {
+            isQuoteAlreadyStored = true;
+            TreeNum = x;
+            sentence_adjust = node_sentence_array[x].quote
+            sentence = (node_sentence_array[x].quote).split(' ').join('').split("\n").join('').toLowerCase().replace(/\./g, "");
+            //console.log("sentence :", sentence);
+            createWholeTree();
+            break;
+          }
         }
-        TSTstored.push(TSTValues);
-        var TSTStoredString = saveTSTTableAsString(TSTValues);
+  
+  
+        // issue with d3 and deleting elements - redraw, delete div and re-create div
+        //document.getElementById("tree-" + num).remove();
+        if (document.getElementById('tree-1') != null) {
+          document.getElementById("tree-1").remove();
+        }
+        var div = document.createElement("div");
+        div.setAttribute("id", "tree-" + num);
+        document.getElementById("TreeArea").appendChild(div);
+       // initialise(num);
+  
+        body = JSON.stringify(WholeTree)
+        SFL_node_pos = [];
+  
+        
+  
+         var finaltree = await getfinalTree(selectedSentenceId);
+          document.getElementById('tree-0').innerHTML= finaltree;
+        
+  
+  
+  
+       
 
-        $('#isAnalysed' + sentenceId).prop('checked', true).removeClass('disabled');
+        
+     
+    
+
+   
+
+    
+      });
+      $("#TreeArea").on('click', async function () {
         var sentenceSelected = document.getElementById('sentence2').innerHTML;
         sentenceSelected = sentenceSelected.replace(/<span class="ULtwo">/g, ""); //get rid of any UL classes 
         sentenceSelected = sentenceSelected.replace(/<\/span>/g, "");
@@ -341,7 +361,7 @@ function tree() {
   
         
   
-          tree.nodes = await getTree(body);
+           tree.nodes = await getTree(body);
           reposition(tree.nodes[0]);
           redraw()
           clauseInfo = {
@@ -350,10 +370,10 @@ function tree() {
             "Caption": document.getElementById("newCaptionValue").value,
             "SFL": tree.nodes[0],
             "Annotations": allAnnoOfCurrentTable(node_array, sentenceId),
-            "Tree": $('#tree-0').html()
+            "Tree": $('#tree-0').html(),
+            
           }
-
-          
+  
           if (adjust) {
   
             console.log(sentenceWithAnnotations)
@@ -375,20 +395,9 @@ function tree() {
             break;
           }
         }
-  
-  
-  
-        await defineVariables();
-        await compareTree(comparedTree, compareTreeActivate);//activates if user compares their tree against another
+      })
 
-        
-     
-    
-
-   
-
-    
-      });
+      
     });
     return tree;
   }
@@ -480,6 +489,40 @@ getTree = function(body) {
         console.log(status);
         console.log(error);
     }
+  // var nodes;
+  // var res;
+  // return new Promise(function(resolve, reject) {
+  //     $.post(
+  //         backendPort + "/analysis/treetest", {
+  //             body
+  //         },
+  //         function(data) {
+  //             var res = JSON.stringify(data).slice(1, -1).replace(/\\/g, "");
+  //             nodes = JSON.parse(res);
+  //             resolve(nodes);
+  //         }
+  //     );
+  });
+});
+}
+
+getfinalTree = function(body) {
+
+  return new Promise(function(resolve, reject) {
+    $.ajax({
+      type: "GET",
+      url: backendPort + "/analysis/getTree/" + body,
+      dataType: "HTML",
+      encode: true,
+      beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
+      success: function(data) {
+        var tree = data;
+      resolve(tree) ;
+      },
+      error: function(xhr, status, error) {
+          console.log(status);
+          console.log(error);
+      }
   // var nodes;
   // var res;
   // return new Promise(function(resolve, reject) {

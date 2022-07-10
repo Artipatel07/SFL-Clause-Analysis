@@ -10,9 +10,19 @@ const router = express.Router();
 
 
 router.get('/allAnalysis', auth, async(req, res) => {
-    const allAnalysis = await AnswerSchema.find()
+    var id = mongoose.Types.ObjectId(req.body.clauseID);
+    const allAnalysis = await AnswerSchema.findOne({ clauseID: id })
+    
     if (!allAnalysis) return res.status(400).send({ message: "Something went wrong." })
     return res.status(200).send(allAnalysis)
+})
+
+router.get('/getTree/:clauseID', auth, async(req, res) => {
+    var id = mongoose.Types.ObjectId(req.params.clauseID);
+    const allAnalysis = await AnswerSchema.find({ clauseID: id })
+    resP = allAnalysis[0].analysis.Tree;
+    if (!allAnalysis) return res.status(400).send({ message: "Something went wrong." })
+    return res.status(200).send(resP)
 })
 
 router.post('/getAnalysis', auth, async(req, res) => {
