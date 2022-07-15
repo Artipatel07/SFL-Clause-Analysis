@@ -27,4 +27,4 @@ npm install
 
 npm start
 
-Open browser to http://localhost:3000/
+Open browser to http://localhost:3000/views
