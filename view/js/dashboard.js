@@ -36,6 +36,13 @@ function Logout(groupId, clauseId) {
     });
 }
 
+function myFunction(){
+    var username= localStorage.getItem("Username");
+    document.getElementById("myUserName").innerHTML = '<b>Logged in:</b> '+username;
+}
+ 
+myFunction();
+
 $('#studentButton').click(function () {
 // window.location.href ="views/group";
 });

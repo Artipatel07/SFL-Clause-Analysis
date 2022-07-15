@@ -143,6 +143,11 @@ router.put('/Updateinvite/:id/:userName' ,auth, async(req, res) => {
       await InviteSchema.findOneAndUpdate({ Invite_TO: req.params.userName , GroupID: req.params.id , Status: "NULL"},{Status: "YES"}) 
      return res.status(200).send("Update Sucessfully")
  })
+
+ router.put('/Rejectinvite/:id/:userName' ,auth, async(req, res) => {
+    await InviteSchema.findOneAndUpdate({ Invite_TO: req.params.userName , GroupID: req.params.id , Status: "NULL"},{Status: "NO"}) 
+   return res.status(200).send("Update Sucessfully")
+})
   
 
 

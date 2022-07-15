@@ -20,6 +20,8 @@ const tST = {
     headings: [{ type: String }]
 };
 
+
+
 const analysis = {
     oneStrandTable: oST,
     threeStrandTable: tST,

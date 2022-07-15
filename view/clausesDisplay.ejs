@@ -21,18 +21,24 @@
     <title>SFL Draw</title>
 </head>
 
-<body>
+<body onload="myFunction()">
     <div class='containerOfAll'>
 
         <nav style='background-color: #007bff' role="navigation">
             <div class="nav-wrapper">
+              
                 <span style='right:20px; z-index:3' class="profile-picture right">
                     <i class='material-icons' style='font-size: 25px'  onclick="Logout()"> logout
                     </i>
             </span>
+            <span id="myUserName" class="right" style=' margin-right:28px;'></span> 
                 <a class="grey-text text-lighten-4 right" href="#!">
                     <i class="material-icons right" style='color:white; margin-right: 16px'>
                     <i id='addClause' style='font-size: 2.4rem;  margin-right: 16px' class="material-icons">add</i>
+                    </i>
+                </a>
+                <a class="grey-text text-lighten-4 right" href="/views/group" id="studentButton">
+                    <i class='material-icons' style='font-size: 25px'>user-group
                     </i>
                 </a>
                 <span id='Sfl_teacher_settings' style='right:40px; margin-top:7px; z-index: 3; display:none' class="profile-picture right">
@@ -69,7 +75,7 @@
             <!--<button id="closePanel2" class="w3-button w3-red w3-right w3-large"><i class="fa fa-close"></i></button>-->
             <i id='closePanel2' style='position: absolute; right:10px' class="material-icons">close</i>
 
-            <h4 id='analysisTableHeading'>Analysis Table</h4>
+            <h4 id='analysisTableHeading'>Analysis</h4>
 
                          <ul class="tabs btn-group btn-grp">
                 <li id="MarkupButton" style="flex: 1;" class="w3-bar-item w3-button tablink active tab col s3"

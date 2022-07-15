@@ -1,3 +1,10 @@
+function myFunction(){
+    var username= localStorage.getItem("Username");
+    document.getElementById("myUserName").innerHTML = '<b>Logged in:</b> '+username;
+}
+ 
+myFunction();
+
 
 function deleteClause(groupId, clauseId) {
     $.ajax({
@@ -184,23 +191,10 @@ $(document).ready(function() {
     //     saveAnswers(answerValues);
     // });
 
-    function saveAnswers(answers) {
-        $.ajax({
-            type: "POST",
-            url: backendPort + "/analysis/saveAnswers",
-            data: answers,
-            dataType: "json",
-            encode: true,
-            beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
-            success: function(data) {
-                window.location.reload();
-            },
-            error: function(xhr, status, error) {
-                console.log(status);
-                console.log(error);
-            }
-        });
-    }
+    
+
+
+   
 
     function joinStrandTables() {
         isOneStrandEntryArray = [];

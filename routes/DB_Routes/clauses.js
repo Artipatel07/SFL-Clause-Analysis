@@ -43,6 +43,7 @@ router.post('/treetest/', (req, res) => {
     //console.log("SFL Generated!");
     res.send(myJSON);
     res.send(doc_width);
+    return res.status(200).send({ message: "Got tree nodes" })
   });
 
 

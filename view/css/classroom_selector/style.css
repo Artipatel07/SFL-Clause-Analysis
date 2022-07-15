@@ -89,57 +89,49 @@ h4 {
     margin: 0rem 0 0.912rem 0;
 }
 
-.Assesment-table {
-    width: 100%;
+/*Changes My Groups */
+
+
+  
+fieldset {
+    background-color: #eeeeee;
+  }
+  
+  legend {
+    background-color: gray;
     color: white;
-    background-color: #082349;
-    border: 1px solid;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: auto;
+    padding: 5px 10px;
+  }
+
+  .header-groups{
+      margin-left: 10px;
   }
   
-  .Assesment-table td {
-    vertical-align: middle;
-    height: 34px;
-    padding: 10px;
-    border-bottom: solid 1px gray;
+  .Assesment-table {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    font-size: 14px;
   }
   
-  .Assesment-table td label {
-    color: #212121;
+  .Assesment-table td, Assesment-table th {
+    border: 1px solid #ddd;
+    padding: 12px 5px;
   }
+
   
-  .Assesment-table th {
-    padding: 10px 22px;
-    vertical-align: middle;
-    border-bottom: 1px solid;
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 2;
-    top: 0;
-  }
+  .Assesment-table tr:nth-child(even){background-color: #f2f2f2;}
   
-  .Assesment-table td {
-    font-size: 15px;
-  }
-  
-  .Assesment-table td:last-of-type {
-    color: light-text;
-    font-size: 15px;
-  }
+  .Assesment-table tr:hover {background-color: #ddd;}
   
   .Assesment-table th {
-    background-color: light-bg;
+    padding: 15px 5px;
+    text-align: left;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
   }
-  
-  .Assesment-table tr:hover {
-    background-color: #8d8d8d;
-  }
-  
-  .Assesment-table tr:not(:last-of-type) {
-    border-bottom: 1px solid light-bg;
-  }
+
 
 
 /*adaptable image*/

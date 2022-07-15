@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/allAnalysis', auth, async(req, res) => {
     var id = mongoose.Types.ObjectId(req.body.clauseID);
     const allAnalysis = await AnswerSchema.findOne({ clauseID: id })
-    
+
     if (!allAnalysis) return res.status(400).send({ message: "Something went wrong." })
     return res.status(200).send(allAnalysis)
 })
