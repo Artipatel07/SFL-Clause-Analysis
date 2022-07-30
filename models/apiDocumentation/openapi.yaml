@@ -1,0 +1,929 @@
+openapi: 3.0.0
+info:
+  title: SFL
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://sfl-clause-analysis-01.herokuapp.com
+  variables: {}
+paths:
+  /users/signup:
+    post:
+      tags:
+      - User
+      summary: Create Account
+      operationId: CreateAccount
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountRequest'
+            example:
+              username: Arti001
+              fullName: Arti Patel
+              password: '123123'
+              email: artipatel@gmail.com
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+  /users/signin:
+    post:
+      tags:
+      - User
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              email: artipatel@gmail.com
+              password: '1231234'
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+  /users/changePassword:
+    post:
+      tags:
+      - User
+      summary: ChangePassword
+      operationId: ChangePassword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequest'
+            example:
+              email: artipatel@gmail.com
+              password: '1231234'
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+  /group/createGroup/Arti001:
+    post:
+      tags:
+      - Groups
+      summary: Create Group
+      operationId: CreateGroup
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupRequest'
+            example:
+              groupName: Maynooth English Literature
+              groupID: 4
+              groupCapacity: 5
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/joinGroup/100/arti@071:
+    put:
+      tags:
+      - Groups
+      summary: Join Group
+      operationId: JoinGroup
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/allGroups:
+    get:
+      tags:
+      - Groups
+      summary: All Groups
+      operationId: AllGroups
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/deleteGroup/112222:
+    delete:
+      tags:
+      - Groups
+      summary: Delete Group
+      operationId: DeleteGroup
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/getAllMembers/123456:
+    get:
+      tags:
+      - Groups
+      summary: Get All Members
+      operationId: GetAllMembers
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/removeMember/123456/Arti001/arti@071:
+    delete:
+      tags:
+      - Groups
+      summary: Delete A Group Member
+      operationId: DeleteAGroupMember
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/allOtherGroups/arti@07:
+    get:
+      tags:
+      - Groups
+      summary: Other Groups
+      operationId: OtherGroups
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/allGroups/arti@07:
+    get:
+      tags:
+      - Groups
+      summary: Get Group user wise
+      operationId: GetGroupuserwise
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/getUserID/62ae6e6890ae5037f037597e:
+    get:
+      tags:
+      - Groups
+      summary: Get Admin
+      operationId: GetAdmin
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/getUserID:
+    get:
+      tags:
+      - Groups
+      summary: get UserID
+      operationId: getUserID
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/getGroupID/group_1:
+    get:
+      tags:
+      - Groups
+      summary: Get groupID
+      operationId: GetgroupID
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/getUser:
+    get:
+      tags:
+      - Groups
+      summary: get Users
+      operationId: getUsers
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/addClause/100:
+    post:
+      tags:
+      - Clauses
+      summary: Add Clause
+      operationId: AddClause
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddClauseRequest'
+            example:
+              createdBy: Arti@21250
+              clause: May your work always bring you prosperity.
+              context: Social
+              visibility: public
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/getAllPub/123456:
+    get:
+      tags:
+      - Clauses
+      summary: All Public Clause
+      operationId: AllPublicClause
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/getAllPvt/123456:
+    get:
+      tags:
+      - Clauses
+      summary: All Private Clause
+      operationId: AllPrivateClause
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/getClause/123456/6293c9726e42c551e0f4fd21:
+    get:
+      tags:
+      - Clauses
+      summary: Get A Clause
+      operationId: GetAClause
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/deleteAll/1:
+    delete:
+      tags:
+      - Clauses
+      summary: Delete All Clauses
+      operationId: DeleteAllClauses
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/delete/123456/6293c9726e42c551e0f4fd21:
+    delete:
+      tags:
+      - Clauses
+      summary: Delete A Clause
+      operationId: DeleteAClause
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/updateClause/123456/6293c9116e42c551e0f4fd1f:
+    put:
+      tags:
+      - Clauses
+      summary: Update A Clause
+      operationId: UpdateAClause
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAClauseRequest'
+            example:
+              clause: This is updated clause...
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/changeVisibility/123456/6293c9116e42c551e0f4fd1f:
+    put:
+      tags:
+      - Clauses
+      summary: Toggle Visibility
+      operationId: ToggleVisibility
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /clause/updateContext/123456/6293c9116e42c551e0f4fd1f:
+    put:
+      tags:
+      - Clauses
+      summary: Update Context
+      operationId: UpdateContext
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContextRequest'
+            example:
+              context: Testing
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /analysis/getAnalysis:
+    post:
+      tags:
+      - Analysis
+      summary: Get A Analysis
+      operationId: GetAAnalysis
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAAnalysisRequest'
+            example:
+              clauseID: 6293c9116e42c551e0f4fd1f
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /analysis/allAnalysis:
+    get:
+      tags:
+      - Analysis
+      summary: All Analysis
+      operationId: AllAnalysis
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /analysis/treetest:
+    post:
+      tags:
+      - Analysis
+      summary: Generate SFL
+      operationId: GenerateSFL
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateSFLRequest'
+            example:
+              body:
+              - Clause:
+                  ngp:
+                    dd:
+                      the: {}
+                    th:
+                      canvas: {}
+                    m|adjgp:
+                      t:
+                        in: {}
+                      a:
+                        the: {}
+                      th:
+                        bedroom: {}
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /analysis/saveAnswers:
+    post:
+      tags:
+      - Analysis
+      summary: Save Answers
+      operationId: SaveAnswers
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          text/plain:
+            schema:
+              type: string
+              example: >-
+                {
+
+                    "userName": "Arti@21250",
+
+                    "groupID": 4,
+
+                    "clauseID": "62bdbf6385e9822184c15bd6",
+
+                    "analysis": {{analysis}}
+
+                }
+            example: >-
+              {
+
+                  "userName": "Arti@21250",
+
+                  "groupID": 4,
+
+                  "clauseID": "62bdbf6385e9822184c15bd6",
+
+                  "analysis": {{analysis}}
+
+              }
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /analysis/getTree/62d16af07749640004a54293:
+    get:
+      tags:
+      - Analysis
+      summary: Get tree
+      operationId: Gettree
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /group/GetInvite/arti@071:
+    get:
+      tags:
+      - Invite
+      summary: get invitation
+      operationId: getinvitation
+      parameters: []
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+  /group/Updateinvite/1/buuzuu19:
+    put:
+      tags:
+      - Invite
+      summary: Update Invite
+      operationId: UpdateInvite
+      parameters:
+      - name: x-auth-token
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyaXRpa2d1cHRhMjRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMxMjMiLCJpYXQiOjE2MjIyNDMwMzd9.TiDIhTUWMtGiss9hDGqLsgMG0zW642j_SKapjWmgG4M
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+  /analysis/sendInvite:
+    post:
+      tags:
+      - Invite
+      summary: send invite
+      operationId: sendinvite
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sendinviterequest'
+            example:
+              AdminID: arti@071
+              GroupID: 123456
+              Invite_TO: arti@07
+              Status: 'NULL'
+        required: true
+      responses:
+        '200':
+          description: 'successful'
+          headers: {}
+      deprecated: false
+      security:
+      - apiKey: []
+components:
+  schemas:
+    CreateAccountRequest:
+      title: CreateAccountRequest
+      required:
+      - username
+      - fullName
+      - password
+      - email
+      type: object
+      properties:
+        username:
+          type: string
+        fullName:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+      example:
+        username: Arti001
+        fullName: Arti Patel
+        password: '123123'
+        email: artipatel@gmail.com
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: artipatel@gmail.com
+        password: '1231234'
+    ChangePasswordRequest:
+      title: ChangePasswordRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: artipatel@gmail.com
+        password: '1231234'
+    CreateGroupRequest:
+      title: CreateGroupRequest
+      required:
+      - groupName
+      - groupID
+      - groupCapacity
+      type: object
+      properties:
+        groupName:
+          type: string
+        groupID:
+          type: integer
+          format: int32
+        groupCapacity:
+          type: integer
+          format: int32
+      example:
+        groupName: Maynooth English Literature
+        groupID: 4
+        groupCapacity: 5
+    AddClauseRequest:
+      title: AddClauseRequest
+      required:
+      - createdBy
+      - clause
+      - context
+      - visibility
+      type: object
+      properties:
+        createdBy:
+          type: string
+        clause:
+          type: string
+        context:
+          type: string
+        visibility:
+          type: string
+      example:
+        createdBy: Arti@21250
+        clause: May your work always bring you prosperity.
+        context: Social
+        visibility: public
+    UpdateAClauseRequest:
+      title: UpdateAClauseRequest
+      required:
+      - clause
+      type: object
+      properties:
+        clause:
+          type: string
+      example:
+        clause: This is updated clause...
+    UpdateContextRequest:
+      title: UpdateContextRequest
+      required:
+      - context
+      type: object
+      properties:
+        context:
+          type: string
+      example:
+        context: Testing
+    GetAAnalysisRequest:
+      title: GetAAnalysisRequest
+      required:
+      - clauseID
+      type: object
+      properties:
+        clauseID:
+          type: string
+      example:
+        clauseID: 6293c9116e42c551e0f4fd1f
+    GenerateSFLRequest:
+      title: GenerateSFLRequest
+      required:
+      - body
+      type: object
+      properties:
+        body:
+          type: array
+          items:
+            $ref: '#/components/schemas/Body'
+          description: ''
+      example:
+        body:
+        - Clause:
+            ngp:
+              dd:
+                the: {}
+              th:
+                canvas: {}
+              m|adjgp:
+                t:
+                  in: {}
+                a:
+                  the: {}
+                th:
+                  bedroom: {}
+    Body:
+      title: Body
+      required:
+      - Clause
+      type: object
+      properties:
+        Clause:
+          $ref: '#/components/schemas/Clause'
+      example:
+        Clause:
+          ngp:
+            dd:
+              the: {}
+            th:
+              canvas: {}
+            m|adjgp:
+              t:
+                in: {}
+              a:
+                the: {}
+              th:
+                bedroom: {}
+    Clause:
+      title: Clause
+      required:
+      - ngp
+      type: object
+      properties:
+        ngp:
+          $ref: '#/components/schemas/Ngp'
+      example:
+        ngp:
+          dd:
+            the: {}
+          th:
+            canvas: {}
+          m|adjgp:
+            t:
+              in: {}
+            a:
+              the: {}
+            th:
+              bedroom: {}
+    Ngp:
+      title: Ngp
+      required:
+      - dd
+      - th
+      - m|adjgp
+      type: object
+      properties:
+        dd:
+          $ref: '#/components/schemas/Dd'
+        th:
+          $ref: '#/components/schemas/Th'
+        m|adjgp:
+          $ref: '#/components/schemas/MAdjgp'
+      example:
+        dd:
+          the: {}
+        th:
+          canvas: {}
+        m|adjgp:
+          t:
+            in: {}
+          a:
+            the: {}
+          th:
+            bedroom: {}
+    Dd:
+      title: Dd
+      required:
+      - the
+      type: object
+      properties:
+        the:
+          type: object
+      example:
+        the: {}
+    Th:
+      title: Th
+      required:
+      - canvas
+      type: object
+      properties:
+        canvas:
+          type: object
+      example:
+        canvas: {}
+    MAdjgp:
+      title: MAdjgp
+      required:
+      - t
+      - a
+      - th
+      type: object
+      properties:
+        t:
+          $ref: '#/components/schemas/T'
+        a:
+          $ref: '#/components/schemas/A'
+        th:
+          $ref: '#/components/schemas/Th1'
+      example:
+        t:
+          in: {}
+        a:
+          the: {}
+        th:
+          bedroom: {}
+    T:
+      title: T
+      required:
+      - in
+      type: object
+      properties:
+        in:
+          type: object
+      example:
+        in: {}
+    A:
+      title: A
+      required:
+      - the
+      type: object
+      properties:
+        the:
+          type: object
+      example:
+        the: {}
+    Th1:
+      title: Th1
+      required:
+      - bedroom
+      type: object
+      properties:
+        bedroom:
+          type: object
+      example:
+        bedroom: {}
+    sendinviterequest:
+      title: sendinviterequest
+      required:
+      - AdminID
+      - GroupID
+      - Invite_TO
+      - Status
+      type: object
+      properties:
+        AdminID:
+          type: string
+        GroupID:
+          type: integer
+          format: int32
+        Invite_TO:
+          type: string
+        Status:
+          type: string
+      example:
+        AdminID: arti@071
+        GroupID: 123456
+        Invite_TO: arti@07
+        Status: 'NULL'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: x-auth-token
+      in: header
+security: []
+tags:
+- name: User
+- name: Groups
+- name: Clauses
+- name: Analysis
+- name: Invite

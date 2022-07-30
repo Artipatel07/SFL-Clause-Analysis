@@ -45,10 +45,18 @@ router.post('/treetest/', (req, res) => {
         Invite_TO: req.body.Invite_TO,
         Status: req.body.Status
     })
+    var count = InviteSchema.find({AdminID: req.body.AdminID, GroupID: req.body.GroupID, Invite_TO: req.body.Invite_TO, Status: req.body.Status})
+    if((req.body.AdminID != req.body.Invite_TO)){
+    if(count.model.length ==0 ){
    // var id = mongoose.Types.ObjectId(req.body.clauseID);
     await analysisObject.save().catch(err => res.status(400).send(err))
-    if (!analysisObject) return res.status(400).send({ message: "Something went wrong." })
     return res.status(200).send(analysisObject)
+}
+    else{
+    res.status(200).send({ message: "Group Created.", group: group })
+    }
+}
+    if (!analysisObject) return res.status(400).send({ message: "Something went wrong." })
 })
 
 
@@ -97,7 +105,7 @@ router.post('/saveAnswers', async(req, res) => {
         currentGroup.groupClauses = originalClauses.concat(filteredClause);
         await currentGroup.save().catch(err => console.log(err));
     } else {
-        await AnswerSchema.findOneAndUpdate({ clauseID: clauseId }, { analysis: analysisObj });
+        await AnswerSchema.findOneAndUpdate({ clauseID: clauseId }, { analysis: analysisObj , userName: req.body.userName });
     }
     return res.status(200).send(analysisObject)
 })

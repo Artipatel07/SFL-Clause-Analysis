@@ -112,8 +112,10 @@ router.get('/getUserID/:obj_id', auth, async(req, res) => {
 
 })
 
-router.get('/getUser', auth, async(req, res) => {
+router.get('/getUser/:id', auth, async(req, res) => {
+    const docs = await Groups.find({ groupName : req.params.id }).select('members -_id')
     const user = await User.find()
+
     if (!user) return res.status(400).send({ message: "Something went wrong." })
     res.status(200).send(user)
 

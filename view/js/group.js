@@ -76,7 +76,7 @@ function show(data) {
         tab += `<tr> 
         <td style="width:20%" >${"My Group"} </td>
     <td style="width:30%">${r.groupName}</td>
-   <td  id='insertClassroomsHere' style="width:20%">${r.groupClauses.length}</td>
+   <td  onclick="clause(this)" style="width:20%">${r.groupClauses.length}</td>
     <td style="width:20%">
     <div class="status status-pending" >${r.groupCapacity}</div>
   </td>
@@ -96,7 +96,7 @@ function show(data) {
         tab += `<tr> 
         <td style="width:20%">${"My Group"} </td>
         <td style="width:50%">${r.groupName}</td>
-        <td style="width:20%">${r.groupClauses.length}</td>
+        <td onclick="clause(this)" style="width:20%">${r.groupClauses.length}</td>
     <td style="width:20%">
     <div class="status status-pending" >${r.groupCapacity}</div>
 
@@ -131,7 +131,7 @@ function show(data) {
         tab += `<tr > 
         <td style="width:20%">${"Group"} </td>
         <td style="width:50%">${r.groupName}</td>
-        <td style="width:20%">${r.groupClauses.length}</td>
+        <td onclick="clause(this)" style="width:20%">${r.groupClauses.length}</td>
     <td style="width:20%">
     <div class="status status-pending" >${r.groupCapacity}</div>
 
@@ -183,7 +183,7 @@ function show(data) {
           <td style="width:20%">${"Invite"} </td>
 
      <td style="width:50%">${r[0].groupName}</td>
-     <td id='insertClassroomsHere' style="width:20%">${r[0].groupClauses.length}</td>
+     <td onclick="clause(this)" style="width:20%">${r[0].groupClauses.length}</td>
       <td style="width:20%">
       <div class="status status-pending" >${r[0].groupCapacity}</div>
   
@@ -251,6 +251,29 @@ function show(data) {
       }
   });
 
+  }
+
+
+function clause (element){
+  var group_name = element.parentNode.cells[1].innerText
+  $.ajax({
+    type: "GET",
+    url: backendPort + "/group/getGroupID/" + group_name,
+    dataType: "json",
+    encode: true,
+    beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
+    success: function(data) {
+      clauseScreen(data);
+    },
+    error: function(xhr, status, error) {
+        console.log(status);
+        console.log(error);
+    }
+});
+  }
+
+  function clauseScreen (data){
+   location.href= '/views/group-clauses/'+ data.groupID;
   }
 
   function AcceptGroup (element){
@@ -392,6 +415,7 @@ function show(data) {
       encode: true,
       beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
       success: function(data) {
+        var data = data;
         add(data);
       },
       error: function(xhr, status, error) {
@@ -438,7 +462,7 @@ function add (data){
         $('#newClassroom').slideDown();
         $.ajax({
           type: "GET",
-          url: backendPort + "/group/getUser",
+          url: backendPort + "/group/getUser/" + data.groupName,
           dataType: "json",
           encode: true,
           beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },

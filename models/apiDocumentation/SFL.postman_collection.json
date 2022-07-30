@@ -256,6 +256,137 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Other Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/allOtherGroups/arti@07",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"allOtherGroups",
+								"arti@07"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Group user wise",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/allGroups/arti@07",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"allGroups",
+								"arti@07"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/getUserID/62ae6e6890ae5037f037597e",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"getUserID",
+								"62ae6e6890ae5037f037597e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get UserID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/getUserID/",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"getUserID",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get groupID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/getGroupID/group_1",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"getGroupID",
+								"group_1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/getUser",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"getUser"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"auth": {
@@ -625,9 +756,21 @@
 				},
 				{
 					"name": "All Analysis",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clauseID\" : \"6293c9116e42c551e0f4fd1f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/allAnalysis",
 							"protocol": "https",
@@ -645,13 +788,72 @@
 					"response": []
 				},
 				{
+					"name": "Generate SFL",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\": [{\"Clause\":{\"ngp\":{\"dd\":{\"the\":{}},\"th\":{\"canvas\":{}},\"m|adjgp\":{\"t\":{\"in\":{}},\"a\":{\"the\":{}},\"th\":{\"bedroom\":{}}}}}}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/treetest",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"analysis",
+								"treetest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Save Answers",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									" let analysis = JSON.stringify({\"oneStrandTable\":{\"id\":\"\",\"values\":[[\"\",\"ngp\"],[\"\",\"dd\",\"th\",\"t\"]],\"colspanArray\":[{\"csWidth\":\"3\",\"idOfCell\":\"tableEntry0,1\"}],\"headings\":[\"he\",\"is\",\"our\",\"neighbour\"]},\"threeStrandTable\":{\"id\":\"\",\"values\":[[\"Exp\",\"\",\"\",\"\",\"\"],[\"Inter\",\"\",\"\",\"\",\"\"],[\"Text\",\"\",\"\",\"\",\"\"]],\"colspanArray\":[],\"headings\":[\"(1)\",\"he\",\"is\",\"our\",\"neighbour\"]},\"oneStrandTableString\":\"<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;}td, th {  border: 1px solid black;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}</style></head><body><table id='oneStrandedTable'><tr><th>he</th><th>is</th><th>our</th><th>neighbour</th></tr><tr><td></td><td colspan=\\\"3\\\">ngp</td></tr><tr><td></td><td>dd</td><td>th</td><td>t</td></tr></table></body></html>\",\"threeStrandTableString\":\"<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;}td, th {  border: 1px solid black;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}</style></head><body><table id='threeStrandedTable'><tr><th>(1)</th><th>he</th><th>is</th><th>our</th><th>neighbour</th></tr><tr><td>Exp</td><td></td><td></td><td></td><td></td></tr><tr><td>Inter</td><td></td><td></td><td></td><td></td></tr><tr><td>Text</td><td></td><td></td><td></td><td></td></tr></table></body></html>\",\"SFL\":{\"id\":\"00\",\"text\":\"Clause\",\"x\":720,\"y\":18,\"parent\":\"none\",\"isLeaf\":false,\"tWidth\":0,\"depth\":0,\"kids\":[{\"id\":\"id1.5\",\"text\":\"ngp\",\"x\":720,\"y\":69.42857142857143,\"parent\":\"Clause\",\"isLeaf\":false,\"tWidth\":0,\"depth\":1,\"kids\":[{\"id\":\"id2.5\",\"text\":\"dd\",\"x\":591.4285714285714,\"y\":120.85714285714286,\"parent\":\"ngp\",\"isLeaf\":false,\"tWidth\":0,\"depth\":2,\"kids\":[{\"id\":\"id3.5\",\"text\":\"is\",\"x\":591.4285714285714,\"y\":172.28571428571428,\"parent\":\"dd\",\"isLeaf\":true,\"tWidth\":0,\"depth\":3,\"kids\":[]}]},{\"id\":\"id4.5\",\"text\":\"th\",\"x\":720,\"y\":120.85714285714286,\"parent\":\"ngp\",\"isLeaf\":false,\"tWidth\":0,\"depth\":2,\"kids\":[{\"id\":\"id5.5\",\"text\":\"our\",\"x\":720,\"y\":172.28571428571428,\"parent\":\"th\",\"isLeaf\":true,\"tWidth\":0,\"depth\":3,\"kids\":[]}]},{\"id\":\"id6.5\",\"text\":\"t\",\"x\":848.5714285714286,\"y\":120.85714285714286,\"parent\":\"ngp\",\"isLeaf\":false,\"tWidth\":0,\"depth\":2,\"kids\":[{\"id\":\"id7.5\",\"text\":\"neighbour\",\"x\":848.5714285714286,\"y\":172.28571428571428,\"parent\":\"t\",\"isLeaf\":true,\"tWidth\":0,\"depth\":3,\"kids\":[]}]}]}]},\"Tree\":\"<svg width=\\\"1440\\\" height=\\\"800\\\" id=\\\"svgTree-0\\\"><g id=\\\"nodes\\\"><text id=\\\"00\\\" x=\\\"198.57142857142856\\\" y=\\\"21\\\" tWidth=\\\"0\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"18\\\" x=\\\"198.57142857142856\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">Clause</tspan></text><text id=\\\"id1.5\\\" tWidth=\\\"0\\\" x=\\\"198.57142857142856\\\" y=\\\"72.42857142857143\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"69.42857142857143\\\" x=\\\"198.57142857142856\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">ngp</tspan></text><text id=\\\"id2.5\\\" tWidth=\\\"0\\\" x=\\\"70\\\" y=\\\"123.85714285714286\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"120.85714285714286\\\" x=\\\"70\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">dd</tspan></text><text id=\\\"id3.5\\\" tWidth=\\\"0\\\" x=\\\"70\\\" y=\\\"175.28571428571428\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"172.28571428571428\\\" x=\\\"70\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">is</tspan></text><text id=\\\"id4.5\\\" tWidth=\\\"0\\\" x=\\\"198.57142857142856\\\" y=\\\"123.85714285714286\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"120.85714285714286\\\" x=\\\"198.57142857142856\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">th</tspan></text><text id=\\\"id5.5\\\" tWidth=\\\"0\\\" x=\\\"198.57142857142856\\\" y=\\\"175.28571428571428\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"172.28571428571428\\\" x=\\\"198.57142857142856\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">our</tspan></text><text id=\\\"id6.5\\\" tWidth=\\\"0\\\" x=\\\"327.1428571428571\\\" y=\\\"123.85714285714286\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"120.85714285714286\\\" x=\\\"327.1428571428571\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">t</tspan></text><text id=\\\"id7.5\\\" tWidth=\\\"0\\\" x=\\\"327.1428571428571\\\" y=\\\"175.28571428571428\\\" fill=\\\"black\\\" style=\\\"text-anchor: middle; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"><tspan y=\\\"172.28571428571428\\\" x=\\\"327.1428571428571\\\" style=\\\"font-family: &quot;Times New Roman&quot;;\\\">neighbour</tspan></text></g><g id=\\\"nodes_2\\\"><text id=\\\"00\\\" x=\\\"514.2857142857143\\\" y=\\\"17.857142857142858\\\" tWidth=\\\"0\\\" style=\\\"text-anchor: middle; cursor: pointer;\\\"></text></g><g id=\\\"nodes_3\\\"></g><g id=\\\"links\\\"><line x1=\\\"198.57142857142856\\\" y1=\\\"36.12244897959184\\\" x2=\\\"198.57142857142856\\\" y2=\\\"59.30612244897959\\\" style=\\\"stroke: black; stroke-width: 0.408163px;\\\"></line><line x1=\\\"198.57142857142856\\\" y1=\\\"87.55102040816327\\\" x2=\\\"70\\\" y2=\\\"110.73469387755102\\\" style=\\\"stroke: black; stroke-width: 0.408163px;\\\"></line><line x1=\\\"198.57142857142856\\\" y1=\\\"87.55102040816327\\\" x2=\\\"198.57142857142856\\\" y2=\\\"110.73469387755102\\\" style=\\\"stroke: black; stroke-width: 0.408163px;\\\"></line><line x1=\\\"198.57142857142856\\\" y1=\\\"87.55102040816327\\\" x2=\\\"327.1428571428571\\\" y2=\\\"110.73469387755102\\\" style=\\\"stroke: black; stroke-width: 0.408163px;\\\"></line></g><g id=\\\"links_2\\\"></g><g id=\\\"links\\\"></g><g id=\\\"links_3\\\"></g><g id=\\\"triangles\\\"><polygon points=\\\"70,140.85714285714286 63.87755102040816,162.28571428571428 76.12244897959184,162.28571428571428\\\" style=\\\"stroke: black; stroke-dasharray: 0; stroke-width: 0.408163px; fill: white;\\\"></polygon><polygon points=\\\"198.57142857142856,140.85714285714286 192.44897959183672,162.28571428571428 204.6938775510204,162.28571428571428\\\" style=\\\"stroke: black; stroke-dasharray: 0; stroke-width: 0.408163px; fill: white;\\\"></polygon><polygon points=\\\"327.1428571428571,140.85714285714286 321.0204081632653,162.28571428571428 333.2653061224489,162.28571428571428\\\" style=\\\"stroke: black; stroke-dasharray: 0; stroke-width: 0.408163px; fill: white;\\\"></polygon></g><g id=\\\"triangles_2\\\"></g><g id=\\\"triangles_3\\\"></g><g id=\\\"legend\\\"></g><g id=\\\"captionTranslation\\\"><text y=\\\"252.28571428571428\\\" x=\\\"198.57142857142856\\\"><tspan style=\\\"text-anchor: middle; text-align: center; cursor: pointer; font-size: 8.57143px; font-family: &quot;Times New Roman&quot;;\\\"></tspan></text></g></svg>\",\"Annotations\":[{\"id\":\",1\",\"quote\":\"is\",\"text\":\"[\\\"\\\",\\\"ngp\\\",\\\"dd\\\"]\",\"anno_start\":0,\"anno_end\":2,\"para_start\":\"/[p]\",\"para_end\":\"/[p]\"},{\"id\":\",2\",\"quote\":\"our\",\"text\":\"[\\\"\\\",\\\"ngp\\\",\\\"th\\\"]\",\"anno_start\":0,\"anno_end\":3,\"para_start\":\"/[p]\",\"para_end\":\"/[p]\"},{\"id\":\",3\",\"quote\":\"neighbour\",\"text\":\"[\\\"\\\",\\\"ngp\\\",\\\"t\\\"]\",\"anno_start\":0,\"anno_end\":9,\"para_start\":\"/[p]\",\"para_end\":\"/[p]\"}]})\r",
+									"\r",
+									"pm.variables.set(\"analysis\",JSON.stringify(analysis))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n    \"userName\": \"Arti@21250\",\r\n    \"groupID\": 4,\r\n    \"clauseID\": \"62bdbf6385e9822184c15bd6\",\r\n    \"analysis\": {{analysis}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/saveAnswers",
@@ -670,24 +872,12 @@
 					"response": []
 				},
 				{
-					"name": "Generate SFL",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
+					"name": "Get tree",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "body: {\"Clause\":{\"ngp\":{\"dd\":{\"the\":{}},\"th\":{\"canvas\":{}},\"m|adjgp\":{\"t\":{\"in\":{}},\"a\":{\"the\":{}},\"th\":{\"bedroom\":{}}}}}}",
-							"options": {
-								"raw": {
-									"language": "text"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:3000/analysis/treetest",
+							"raw": "http://localhost:3000/analysis/getTree/6298b9139bbdd50724824bef",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -695,7 +885,8 @@
 							"port": "3000",
 							"path": [
 								"analysis",
-								"treetest"
+								"getTree",
+								"6298b9139bbdd50724824bef"
 							]
 						}
 					},
@@ -713,6 +904,147 @@
 					{
 						"key": "key",
 						"value": "x-auth-token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Invite",
+			"item": [
+				{
+					"name": "get invitation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\" : \"arti@071\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/GetInvite/arti@071",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"GetInvite",
+								"arti@071"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Invite",
+					"request": {
+						"auth": {
+							"type": "apikey"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyaXRpa2d1cHRhMjRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMxMjMiLCJpYXQiOjE2MjIyNDMwMzd9.TiDIhTUWMtGiss9hDGqLsgMG0zW642j_SKapjWmgG4M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/group/Updateinvite/1/buuzuu19",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"group",
+								"Updateinvite",
+								"1",
+								"buuzuu19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send invite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"AdminID\": \"arti@071\",\r\n\"GroupID\": 123456,\r\n\"Invite_TO\": \"arti@07\",\r\n\"Status\": \"NULL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sfl-clause-analysis-01.herokuapp.com/analysis/sendInvite",
+							"protocol": "https",
+							"host": [
+								"sfl-clause-analysis-01",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"analysis",
+								"sendInvite"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "in",
+						"value": "header",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "x-auth-token",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyaXRpa2d1cHRhMjRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMxMjMiLCJpYXQiOjE2MjIyNDMwMzd9.TiDIhTUWMtGiss9hDGqLsgMG0zW642j_SKapjWmgG4M",
 						"type": "string"
 					}
 				]

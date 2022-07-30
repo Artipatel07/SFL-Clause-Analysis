@@ -105,13 +105,17 @@ router.put('/changeVisibility/:id/:clauseID', auth, async(req, res) => {
 
 
 
-router.get('/getAllPub/:id', auth, async(req, res) => {
+router.get('/getAllPub/:id/:username', auth, async(req, res) => {
     let group = await Groups.findOne({ groupID: req.params.id })
     if (!group) return res.status(400).send({ message: "Group Does not Exits" })
     let w = group.groupClauses
     let pubClauses = []
     for (const [i, value] of w.entries()) {
         if (value.visibility == 'public') {
+            pubClauses.push(w[i])
+        }
+        if
+        (value.visibility == 'private' && value.createdBy == req.params.username){
             pubClauses.push(w[i])
         }
     }

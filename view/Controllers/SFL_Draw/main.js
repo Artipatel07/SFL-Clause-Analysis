@@ -8,7 +8,7 @@
 
 var body;
 userid = 's2';
-username = 'Student2'
+username = localStorage.getItem("Username")
 filename = ''; //see table.html to find where this gets it's value
 idOfDocument = userid.substring(userid.indexOf('s') + 1, userid.length);
 sentenceId = ''; //see tableCreator to see where this is initialised. 
@@ -286,16 +286,7 @@ function tree() {
          var finaltree = await getfinalTree(selectedSentenceId);
           document.getElementById('tree-0').innerHTML= finaltree;
         
-  
-  
-  
-       
 
-        
-     
-    
-
-   
 
     
       });

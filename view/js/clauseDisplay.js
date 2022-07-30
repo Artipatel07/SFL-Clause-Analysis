@@ -5,6 +5,9 @@ function myFunction(){
  
 myFunction();
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
 function deleteClause(groupId, clauseId) {
     $.ajax({
@@ -24,6 +27,28 @@ function deleteClause(groupId, clauseId) {
         }
     });
 }
+
+function ToggleVisibility(groupId, clauseId) {
+    $.ajax({
+        type: 'put',
+        url: backendPort + '/clause/changeVisibility/' + groupId + '/' + clauseId,
+        dataType: 'json',
+        encode: true,
+        beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
+        success: function(data) {
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        },
+        error: function(xhr, status, error) {
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
+
+
+
 
 
 function Logout(groupId, clauseId) {
@@ -95,7 +120,7 @@ $(document).ready(function() {
     setTimeout(() => {
         $.ajax({
             type: "GET",
-            url: backendPort + "/clause/getAllPub/" + groupId,
+            url: backendPort + "/clause/getAllPub/" + groupId +'/'+ username,
             dataType: "json",
             encode: true,
             beforeSend: function(xhr) { xhr.setRequestHeader('x-auth-token', $.cookie("token")); },
@@ -111,7 +136,14 @@ $(document).ready(function() {
                     }
                     innerhtml += `<span id="isAnalysed" style="cursor:unset">Analysed</span></div></td><td class="clauseAlignment"><span id="flip" onclick="changeSelectedSentence(this.innerHTML, '` + data[x]._id + `', ` + data[x].isAnswered + `)">`;
                     innerhtml += data[x].clause + `</span></td><td><button class="btn btn-danger" style='display: inline-block; background-color: red' onclick="deleteClause(` + groupId + `,'` + data[x]._id + `')">`;
-                    innerhtml += `<i class="material-icons">delete</i></button></td></tr>`;
+                    innerhtml += `<i class="material-icons">delete</i></button>`;
+                    if(data[x].visibility== 'private'){
+                    innerhtml += `<button class= "btn btn-info" data-toggle="tooltip" data-placement="top" title="Private" style='display: inline-block; background-color: green; margin-left : 20px' onclick="ToggleVisibility(` + groupId + `,'` + data[x]._id + `')">`;
+                    innerhtml += `<i class="material-icons md-48">lock</i></button></td></tr>`;}
+                    else{
+                    innerhtml += `<button class= "btn btn-info" data-toggle="tooltip" data-placement="top" title="Public" style='display: inline-block; background-color: blue; margin-left : 20px' onclick="ToggleVisibility(` + groupId + `,'` + data[x]._id + `')">`;
+                    innerhtml += `<i class="material-icons md-48">lock_open</i></button></td></tr>`;  
+                    }
                 }
                 document.getElementById('putcontentshere').innerHTML = innerhtml;
             },
