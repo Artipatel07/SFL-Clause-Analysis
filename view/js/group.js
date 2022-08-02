@@ -120,7 +120,7 @@ function show(data) {
         <th> Category </th>
           <th>Name</th>
           <th>Clauses</th>
-          <th>Details</th>
+          <th>Capacity</th>
           <th>Actions</th>
          </tr>`;
     
@@ -171,7 +171,7 @@ function show(data) {
           <th> Category </th>
             <th>Name</th>
             <th>Clauses</th>
-            <th>Details</th>
+            <th>Capacity</th>
             <th>Actions</th>
            </tr>`;
       
@@ -277,7 +277,7 @@ function clause (element){
   }
 
   function AcceptGroup (element){
-    var group_name = element.parentNode.parentNode.parentNode.children[1].innerText
+    var group_name = element.parentNode.parentNode.cells[1].innerText
     $.ajax({
       type: "GET",
       url: backendPort + "/group/getGroupID/" + group_name,
@@ -296,7 +296,7 @@ function clause (element){
   }
 
   function RejectGroup (element){
-    var group_name = element.parentNode.parentNode.parentNode.children[1].innerText
+    var group_name = element.parentNode.parentNode.cells[1].innerText
     $.ajax({
       type: "GET",
       url: backendPort + "/group/getGroupID/" + group_name,
